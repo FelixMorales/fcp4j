@@ -1,0 +1,12 @@
+com\ucab\fcpserver4j\comun\entidades\Archivo.class
+com\ucab\fcpserver4j\comun\entidades\operaciones\cliente\Coordinador.class
+com\ucab\fcpserver4j\comun\entidades\operaciones\cliente\Log.class
+com\ucab\fcpserver4j\App.class
+com\ucab\fcpserver4j\comun\utilidades\Conexion.class
+com\ucab\fcpserver4j\comun\entidades\operaciones\cliente\Update.class
+com\ucab\fcpserver4j\comun\entidades\Servidor.class
+com\ucab\fcpserver4j\comun\propiedades\LeerPropiedad.class
+com\ucab\fcpserver4j\servicio\Servicio.class
+com\ucab\fcpserver4j\comun\entidades\operaciones\cliente\Commit.class
+com\ucab\fcpserver4j\comun\entidades\operaciones\Operacion.class
+com\ucab\fcpserver4j\comun\propiedades\BasePropiedad.class
