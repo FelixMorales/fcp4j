@@ -3,6 +3,9 @@
 *.idea
 *.iml
 
+# Folders
+target/
+
 # Log file
 *.log
 
