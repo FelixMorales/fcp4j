@@ -9,6 +9,13 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Name:                  Servicio
+ * Description:           Detecta cada nueva conexion y la envia al ConnectionManager
+ *
+ * @since 30/12/18
+ *
+ */
 public class Servicio implements Runnable
 {
     private ServerSocket listener;

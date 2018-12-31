@@ -16,7 +16,7 @@ public class ObtenerIdServidor implements IMensajeEntrada
 
         try
         {
-            System.out.println( "Dandole mi id al servidor:"+servidor.getIp()+servidor.getPuerto() );
+            System.out.println( "Dandole mi informacion al servidor:"+servidor.getIp()+servidor.getPuerto() );
             servidor.getConexion().enviarCaracteres( new RespuestaObtenerIdServidor() );
         }
         catch ( IOException e )

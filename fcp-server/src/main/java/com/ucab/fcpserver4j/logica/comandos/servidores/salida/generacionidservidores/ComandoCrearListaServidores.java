@@ -1,4 +1,4 @@
-package com.ucab.fcpserver4j.logica.comandos.servidores.salida;
+package com.ucab.fcpserver4j.logica.comandos.servidores.salida.generacionidservidores;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
@@ -8,6 +8,15 @@ import com.ucab.fcpserver4j.logica.comandos.Comando;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+
+/**
+ * Name:                  ComandoCrearListaServidores
+ * Description:           Crea la lista de servidores activos al momento de iniciar el programa,
+ *                        verificando cuales servidores estan activos agregando unicamente los activos.
+ *
+ * @since 30/12/18
+ *
+ */
 
 public class ComandoCrearListaServidores extends Comando<Boolean>
 {

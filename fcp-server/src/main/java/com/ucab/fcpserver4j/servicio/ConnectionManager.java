@@ -10,6 +10,13 @@ import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
 
 import java.io.IOException;
 
+/**
+ * Name:                  ConnectionManager
+ * Description:           Procesa cada conexión nueva, diferencia si es un servidor o cliente.
+ *
+ * @since 30/12/18
+ *
+ */
 public class ConnectionManager implements Runnable
 {
     private Conexion conexion;

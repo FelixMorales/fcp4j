@@ -11,9 +11,8 @@ public class RespuestaObtenerIdServidor extends MensajeSalida
     {
         super();
 
-        agregarElemento( PropiedadesMensajes.TIPOMENSAJE, CodigosSalida.GENERAR_ID_LOCAL );
+        agregarElemento( PropiedadesMensajes.TIPOMENSAJE, CodigosSalida.ASIGNAR_ID_SERVIDORES );
         agregarElemento( PropiedadesMensajes.SERVIDOR, true );
-        agregarElemento( PropiedadesMensajes.NOMBRESERVIDOR, Global.obtenerGlobal().getServidorLocal().getNombre() );
         agregarElemento( PropiedadesMensajes.IDSERVIDOR,Global.obtenerGlobal().getServidorLocal().getId() );
         agregarElemento( PropiedadesMensajes.SOYPRINCIPAL,Global.obtenerGlobal().getServidorLocal().isPrincipal() );
     }

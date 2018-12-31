@@ -7,8 +7,6 @@ import java.util.Properties;
  * System:                 Fcp
  * Name:                   BasePropiedad
  *
- * @author Felix Morales
- * @version 1.0
  * @since 30/12/18
  */
 public class BasePropiedad
@@ -20,8 +18,6 @@ public class BasePropiedad
      * Name:                  obtenerPropiedades
      * Description:           Obtiene las propiedades de un archivo de configuracion
      *
-     * @author Felix Morales
-     * @version 1.0
      * @since 30/12/18
      *
      * @param nombre nombre del archivo

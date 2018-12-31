@@ -1,5 +1,12 @@
 package com.ucab.fcpserver4j.logica.mensajes.core.constantes;
 
+/**
+ * Name:                  PropiedadesMensajes
+ * Description:           Nombres para las propiedades que se encontrarán en el JSON del mensaje I/O
+ *
+ * @since 30/12/18
+ *
+ */
 public final class PropiedadesMensajes
 {
     public static final String TIPOMENSAJE = "tipo";

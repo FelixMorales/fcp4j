@@ -7,6 +7,13 @@ import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
 
 import java.io.IOException;
 
+/**
+ * Name:                  MonitorearServidor
+ * Description:           Matiene la conexión abierta con los otros servidores remotos.
+ *
+ * @since 30/12/18
+ *
+ */
 public class MonitorearServidor implements Runnable
 {
     Servidor servidor;
@@ -29,7 +36,9 @@ public class MonitorearServidor implements Runnable
             while ( true )
             {
                 String mensajeUTF = servidor.getConexion().recibirCaracteres();
+
                 PaqueteEntrada mensajeEntrada = new PaqueteEntrada( mensajeUTF );
+
                 MensajeManager.obtenerMensajeManager().ProcesarMensajeServidor( mensajeEntrada, servidor );
             }
         }

@@ -1,7 +1,7 @@
 package com.ucab.fcpserver4j;
 
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
-import com.ucab.fcpserver4j.logica.comandos.servidores.salida.ComandoObtenerIdServidor;
+import com.ucab.fcpserver4j.logica.comandos.servidores.salida.generacionidservidores.ComandoCompuestoGenerarIds;
 import com.ucab.fcpserver4j.servicio.Servicio;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -17,10 +17,12 @@ public class App
             System.setProperty("javax.net.ssl.trustStore", LeerPropiedad.TRUSTSTOREPATH );
             System.setProperty("javax.net.ssl.trustStorePassword ", LeerPropiedad.TRUSTSTOREPASSWORD );
 
+            // Inicia el servicio para escuchar nuevas peticiones de servidores y clientes.
             Thread servicio = new Thread( new Servicio() );
             servicio.start();
 
-            ComandoObtenerIdServidor comando = new ComandoObtenerIdServidor();
+            // Inicia el proceso para obtener el id de los otros servidores y generar el id local.
+            ComandoCompuestoGenerarIds comando = new ComandoCompuestoGenerarIds();
             comando.ejecutar();
         }
         catch(IOException e)

@@ -6,6 +6,13 @@ import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeSalida;
 
 import java.util.Base64;
 
+/**
+ * Name:                  MensajeSalida
+ * Description:           Estructura base de todos los mensajes de salidas (JSON)
+ *
+ * @since 30/12/18
+ *
+ */
 public class MensajeSalida implements IMensajeSalida
 {
     private JsonObject mensaje;

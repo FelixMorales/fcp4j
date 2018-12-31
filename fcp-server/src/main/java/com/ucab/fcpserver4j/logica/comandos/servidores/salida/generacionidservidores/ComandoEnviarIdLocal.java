@@ -1,4 +1,4 @@
-package com.ucab.fcpserver4j.logica.comandos.servidores.salida;
+package com.ucab.fcpserver4j.logica.comandos.servidores.salida.generacionidservidores;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
@@ -9,9 +9,19 @@ import com.ucab.fcpserver4j.servicio.MonitorearServidor;
 
 import java.io.IOException;
 
-public class ComandoEnviarIdGenerado extends Comando<Boolean>
+/**
+ * Name:                  ComandoEnviarIdLocal
+ * Description:           Envio mi id local a los otros servidores remotos y mantengo
+ *                        la conexión abierta con cada servidor.
+ *
+ * @since 30/12/18
+ *
+ */
+
+public class ComandoEnviarIdLocal extends Comando<Boolean>
 {
-    public ComandoEnviarIdGenerado()
+
+    public ComandoEnviarIdLocal()
     {
 
     }
@@ -26,6 +36,8 @@ public class ComandoEnviarIdGenerado extends Comando<Boolean>
                 if( !servidor.isLocal() )
                 {
                     servidor.getConexion().enviarCaracteres( new AsignarIdServidor()  );
+
+                    // Una vez envio mi id local al servidor remoto, mantengo el canal abierto.
                     Thread hilo = new Thread( new MonitorearServidor( servidor ) );
                     hilo.start();
                 }

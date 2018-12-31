@@ -6,8 +6,6 @@ import java.util.Properties;
  * System:                 Fcp
  * Name:                   LeerPropiedad
  *
- * @author Felix Morales
- * @version 1.0
  * @since 30/12/18
  */
 public class LeerPropiedad extends BasePropiedad
@@ -25,11 +23,7 @@ public class LeerPropiedad extends BasePropiedad
     public static final String NO_ACTIVO = get( "GENERAL.Mensaje.NoActivo" );
 
     /**
-     * Name:                  get
-     * Description:           Get property by name
      *
-     * @author Felix Morales
-     * @version 1.0
      * @since 30/12/18
      *
      * @param name property name
