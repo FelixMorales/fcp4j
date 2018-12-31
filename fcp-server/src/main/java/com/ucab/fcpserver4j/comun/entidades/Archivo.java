@@ -11,7 +11,7 @@ public class Archivo
     private String ip;
     private Date fechaCreacion;
     private Servidor localizacion;
-    private Byte[] contenido;
+    private byte[] contenido;
 
     private long getId()
     {
@@ -73,12 +73,12 @@ public class Archivo
         this.localizacion = localizacion;
     }
 
-    private Byte[] getContenido()
+    private byte[] getContenido()
     {
         return contenido;
     }
 
-    private void setContenido( Byte[] contenido )
+    private void setContenido( byte[] contenido )
     {
         this.contenido = contenido;
     }

@@ -22,22 +22,17 @@ public class Servicio implements Runnable
     @Override
     public void run()
     {
-        try
+        while ( true )
         {
-            Conexion conexion;
-
-            while ( true )
+            try
             {
-                System.out.println( "Esperando conexion de clientes..." );
-                conexion = new Conexion( listener.accept() );
-                System.out.println( "Recibiendo informacion del cliente" );
-                System.out.println( conexion.getConexion().getRemoteSocketAddress().toString() );
-                System.out.println( conexion.recibirCaracteres() );
+                Thread hilo = new Thread( new ConnectionManager( new Conexion( listener.accept() ) ) );
+                hilo.start();
             }
-        }
-        catch(IOException e)
-        {
-            System.out.println( e.toString() );
+            catch(IOException e)
+            {
+                System.out.println( e.toString() );
+            }
         }
     }
 }

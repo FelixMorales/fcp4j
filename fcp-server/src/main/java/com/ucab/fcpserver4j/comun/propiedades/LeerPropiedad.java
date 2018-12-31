@@ -17,7 +17,13 @@ public class LeerPropiedad extends BasePropiedad
     public static final String PUERTO = get( "CONFIG.puerto" );
     public static final String TOLERANCIA = get( "CONFIG.k-tolerancia" );
     public static final String KEYSTOREPATH = get( "CONFIG.keyStore.path" );
-    public static final String KEYSTOREPASSWORD= get( "CONFIG.keyStore.password" );
+    public static final String KEYSTOREPASSWORD = get( "CONFIG.keyStore.password" );
+    public static final String TRUSTSTOREPATH = get( "CONFIG.trustStore.path" );
+    public static final String TRUSTSTOREPASSWORD = get( "CONFIG.trustStore.password" );
+
+    /*Mensajes generales*/
+    public static final String SERVIDOR_DESCONECTADO = get( "GENERAL.Mensaje.Desconectado" );
+    public static final String NO_ACTIVO = get( "GENERAL.Mensaje.NoActivo" );
 
     /**
      * Name:                  get

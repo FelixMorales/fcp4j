@@ -1,5 +1,7 @@
 package com.ucab.fcpserver4j.comun.utilidades;
 
+import com.ucab.fcpserver4j.logica.salida.IMensajeSalida;
+
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
@@ -17,10 +19,15 @@ public class Conexion
 
     public Conexion ( Socket conexion ) throws IOException
     {
+
         this.conexion = (SSLSocket) conexion;
+
+        System.out.println( "estoy en conexion" );
 
         entrada = new DataInputStream ( this.conexion.getInputStream() );
         salida = new DataOutputStream ( this.conexion.getOutputStream() );
+
+        System.out.println( "estoy en conexion 2" );
     }
 
     public Conexion ( String ip, int puerto ) throws IOException, NoSuchAlgorithmException
@@ -40,12 +47,14 @@ public class Conexion
 
     public String recibirCaracteres() throws IOException
     {
+        System.out.println( "Recibiendo mensaje UTF" );
         return entrada.readUTF();
     }
 
-    public void enviarCaracteres (String entrada) throws IOException
+    public void enviarCaracteres ( IMensajeSalida entrada ) throws IOException
     {
-        salida.writeUTF(entrada);
+        System.out.println("Enviando mensaje:"+entrada.getMensaje() );
+        salida.writeUTF( entrada.getMensaje() );
     }
 
     public Socket getConexion()
