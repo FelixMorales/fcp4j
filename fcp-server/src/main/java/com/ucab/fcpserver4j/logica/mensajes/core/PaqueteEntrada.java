@@ -1,4 +1,4 @@
-package com.ucab.fcpserver4j.logica.entrada;
+package com.ucab.fcpserver4j.logica.mensajes.core;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

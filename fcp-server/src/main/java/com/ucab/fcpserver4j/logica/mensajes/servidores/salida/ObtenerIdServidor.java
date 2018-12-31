@@ -1,8 +1,8 @@
-package com.ucab.fcpserver4j.logica.salida.servidor;
+package com.ucab.fcpserver4j.logica.mensajes.servidores.salida;
 
-import com.ucab.fcpserver4j.comun.utilidades.CodigosSalida;
-import com.ucab.fcpserver4j.comun.utilidades.PropiedadesMensajes;
-import com.ucab.fcpserver4j.logica.salida.MensajeSalida;
+import com.ucab.fcpserver4j.logica.mensajes.core.constantes.CodigosSalida;
+import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
+import com.ucab.fcpserver4j.logica.mensajes.core.MensajeSalida;
 
 public class ObtenerIdServidor extends MensajeSalida
 {

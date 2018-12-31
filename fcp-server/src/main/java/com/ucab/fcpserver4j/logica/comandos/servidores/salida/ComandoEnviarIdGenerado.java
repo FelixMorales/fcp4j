@@ -1,10 +1,10 @@
-package com.ucab.fcpserver4j.logica.comandos.salida.servidor;
+package com.ucab.fcpserver4j.logica.comandos.servidores.salida;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.Global;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
-import com.ucab.fcpserver4j.logica.salida.servidor.AsignarIdServidor;
+import com.ucab.fcpserver4j.logica.mensajes.servidores.salida.AsignarIdServidor;
 import com.ucab.fcpserver4j.servicio.MonitorearServidor;
 
 import java.io.IOException;

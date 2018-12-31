@@ -1,4 +1,4 @@
-package com.ucab.fcpserver4j.logica.comandos.salida.servidor;
+package com.ucab.fcpserver4j.logica.comandos.servidores.salida;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.utilidades.Global;

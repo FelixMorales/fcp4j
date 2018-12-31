@@ -4,9 +4,9 @@ import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.Conexion;
 import com.ucab.fcpserver4j.comun.utilidades.Global;
-import com.ucab.fcpserver4j.comun.utilidades.MensajeManager;
-import com.ucab.fcpserver4j.comun.utilidades.PropiedadesMensajes;
-import com.ucab.fcpserver4j.logica.entrada.PaqueteEntrada;
+import com.ucab.fcpserver4j.logica.mensajes.core.MensajeManager;
+import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
+import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
 
 import java.io.IOException;
 
@@ -27,19 +27,21 @@ public class ConnectionManager implements Runnable
         {
             String mensaje = conexion.recibirCaracteres();
 
-            PaqueteEntrada entrada = new PaqueteEntrada( mensaje );
+            PaqueteEntrada mensajeEntrada = new PaqueteEntrada( mensaje );
 
-            esServidor = entrada.obtenerBoolean( PropiedadesMensajes.SERVIDOR ) ;
+            esServidor = mensajeEntrada.obtenerBoolean( PropiedadesMensajes.SERVIDOR ) ;
 
 
             if(esServidor)
             {
                 System.out.println( "Es servidor" );
-                monitorearServidor( conexion, entrada );
+                monitorearServidor( conexion, mensajeEntrada );
             }
             else
             {
                 System.out.println( "Es cliente" );
+                MensajeManager.obtenerMensajeManager().
+                        ProcesarMensajeCliente( mensajeEntrada, conexion );
             }
         }
         catch( IOException e )
@@ -50,10 +52,16 @@ public class ConnectionManager implements Runnable
 
     private void monitorearServidor(Conexion conexion, PaqueteEntrada entrada)
     {
+        // Instancia el objeto servidor.
         Servidor servidor = crearServidor( conexion, entrada.obtenerString( PropiedadesMensajes.NOMBRESERVIDOR ));
+
+        // Agrega el servidor a la lista de servidores activos.
         Global.obtenerGlobal().getServidoresActivos().add( servidor );
 
-        MensajeManager.obtenerMensajeManager().ejecutarMensaje( entrada, servidor );
+        // Procesa el mensaje de entrada inicial.
+        MensajeManager.obtenerMensajeManager().ProcesarMensajeServidor( entrada, servidor );
+
+        // Mantiene la conexión abierta con el servidor.
         MonitorearServidor monitor = new MonitorearServidor( servidor );
         monitor.escucharServidor();
     }

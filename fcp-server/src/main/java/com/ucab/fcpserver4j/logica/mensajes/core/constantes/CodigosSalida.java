@@ -1,6 +1,6 @@
-package com.ucab.fcpserver4j.comun.utilidades;
+package com.ucab.fcpserver4j.logica.mensajes.core.constantes;
 
-public class CodigosSalida
+public final class CodigosSalida
 {
     public static final int OBTENER_ID = 100;
     public static final int OBTENER_ID_OCUPADO = 101;

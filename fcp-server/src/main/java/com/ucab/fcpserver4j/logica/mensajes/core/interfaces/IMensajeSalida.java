@@ -1,4 +1,4 @@
-package com.ucab.fcpserver4j.logica.salida;
+package com.ucab.fcpserver4j.logica.mensajes.core.interfaces;
 
 public interface IMensajeSalida
 {

@@ -1,7 +1,9 @@
-package com.ucab.fcpserver4j.logica.salida;
+package com.ucab.fcpserver4j.logica.mensajes.core;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeSalida;
+
 import java.util.Base64;
 
 public class MensajeSalida implements IMensajeSalida

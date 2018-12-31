@@ -1,4 +1,4 @@
-package com.ucab.fcpserver4j.comun.utilidades;
+package com.ucab.fcpserver4j.logica.mensajes.core.constantes;
 
 public final class CodigosEntrada
 {

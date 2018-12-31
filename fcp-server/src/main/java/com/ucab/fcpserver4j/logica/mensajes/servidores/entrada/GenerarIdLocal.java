@@ -1,8 +1,9 @@
-package com.ucab.fcpserver4j.logica.entrada.servidor;
+package com.ucab.fcpserver4j.logica.mensajes.servidores.entrada;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
-import com.ucab.fcpserver4j.comun.utilidades.PropiedadesMensajes;
-import com.ucab.fcpserver4j.logica.entrada.PaqueteEntrada;
+import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
+import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
+import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeEntrada;
 
 public class GenerarIdLocal implements IMensajeEntrada
 {

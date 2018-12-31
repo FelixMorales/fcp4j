@@ -16,7 +16,8 @@ public class Servicio implements Runnable
     public Servicio() throws IOException, NoSuchAlgorithmException
     {
         ServerSocketFactory fabrica = SSLContext.getDefault().getServerSocketFactory();
-        listener = fabrica.createServerSocket( Integer.parseInt( LeerPropiedad.PUERTO ) );
+        int puerto = Integer.parseInt( LeerPropiedad.LOCAL.split( ":" )[1] );
+        listener = fabrica.createServerSocket( puerto );
     }
 
     @Override
@@ -26,8 +27,9 @@ public class Servicio implements Runnable
         {
             try
             {
-                Thread hilo = new Thread( new ConnectionManager( new Conexion( listener.accept() ) ) );
-                hilo.start();
+                Conexion conexionEntrante = new Conexion( listener.accept() );
+                Thread conectionManager = new Thread( new ConnectionManager( conexionEntrante ) );
+                conectionManager.start();
             }
             catch(IOException e)
             {

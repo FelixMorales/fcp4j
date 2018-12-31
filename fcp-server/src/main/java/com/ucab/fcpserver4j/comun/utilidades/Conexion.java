@@ -1,6 +1,6 @@
 package com.ucab.fcpserver4j.comun.utilidades;
 
-import com.ucab.fcpserver4j.logica.salida.IMensajeSalida;
+import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeSalida;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;

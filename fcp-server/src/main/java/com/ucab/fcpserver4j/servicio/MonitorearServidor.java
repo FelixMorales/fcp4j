@@ -2,8 +2,8 @@ package com.ucab.fcpserver4j.servicio;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.utilidades.Global;
-import com.ucab.fcpserver4j.comun.utilidades.MensajeManager;
-import com.ucab.fcpserver4j.logica.entrada.PaqueteEntrada;
+import com.ucab.fcpserver4j.logica.mensajes.core.MensajeManager;
+import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
 
 import java.io.IOException;
 
@@ -28,8 +28,9 @@ public class MonitorearServidor implements Runnable
         {
             while ( true )
             {
-                String mensaje = servidor.getConexion().recibirCaracteres();
-                MensajeManager.obtenerMensajeManager().ejecutarMensaje( new PaqueteEntrada( mensaje ), servidor );
+                String mensajeUTF = servidor.getConexion().recibirCaracteres();
+                PaqueteEntrada mensajeEntrada = new PaqueteEntrada( mensajeUTF );
+                MensajeManager.obtenerMensajeManager().ProcesarMensajeServidor( mensajeEntrada, servidor );
             }
         }
         catch( IOException e )
