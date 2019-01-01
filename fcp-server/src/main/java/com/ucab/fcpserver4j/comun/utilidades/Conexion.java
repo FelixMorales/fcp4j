@@ -11,6 +11,14 @@ import java.io.IOException;
 import java.net.Socket;
 import java.security.NoSuchAlgorithmException;
 
+
+/**
+ * Name:                  Conexion
+ * Description:           Gestiona el canal de comunicación por SSLSocket.
+ *
+ * @since 30/12/18
+ *
+ */
 public class Conexion
 {
     private SSLSocket conexion;
@@ -22,12 +30,9 @@ public class Conexion
 
         this.conexion = (SSLSocket) conexion;
 
-        System.out.println( "estoy en conexion" );
-
         entrada = new DataInputStream ( this.conexion.getInputStream() );
         salida = new DataOutputStream ( this.conexion.getOutputStream() );
 
-        System.out.println( "estoy en conexion 2" );
     }
 
     public Conexion ( String ip, int puerto ) throws IOException, NoSuchAlgorithmException
@@ -47,13 +52,11 @@ public class Conexion
 
     public String recibirCaracteres() throws IOException
     {
-        System.out.println( "Recibiendo mensaje UTF" );
         return entrada.readUTF();
     }
 
     public void enviarCaracteres ( IMensajeSalida entrada ) throws IOException
     {
-        System.out.println("Enviando mensaje:"+entrada.getMensaje() );
         salida.writeUTF( entrada.getMensaje() );
     }
 

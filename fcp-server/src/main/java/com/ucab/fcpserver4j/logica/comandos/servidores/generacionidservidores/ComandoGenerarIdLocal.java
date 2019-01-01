@@ -1,7 +1,7 @@
-package com.ucab.fcpserver4j.logica.comandos.servidores.salida.generacionidservidores;
+package com.ucab.fcpserver4j.logica.comandos.servidores.generacionidservidores;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
-import com.ucab.fcpserver4j.comun.utilidades.Global;
+import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
 
 /**
@@ -23,16 +23,17 @@ public class ComandoGenerarIdLocal extends Comando<Boolean>
     @Override
     public Boolean ejecutar()
     {
-        for ( Servidor servidor : Global.obtenerGlobal().getServidoresActivos() )
+        for ( Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos() )
         {
             if( !servidor.isLocal() )
             {
-                if( servidor.getId() > Global.obtenerGlobal().getServidorLocal().getId() )
-                    Global.obtenerGlobal().getServidorLocal().setId( servidor.getId() );
+                if( servidor.getId() > ServerManager.obtenerGlobal().getServidorLocal().getId() )
+                    ServerManager.obtenerGlobal().getServidorLocal().setId( servidor.getId() );
             }
         }
 
-        Global.obtenerGlobal().getServidorLocal().setId( Global.obtenerGlobal().getServidorLocal().getId() + 1 );
+        ServerManager
+                .obtenerGlobal().getServidorLocal().setId( ServerManager.obtenerGlobal().getServidorLocal().getId() + 1 );
 
         return true;
     }

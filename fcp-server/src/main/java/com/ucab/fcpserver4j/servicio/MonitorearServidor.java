@@ -1,7 +1,8 @@
 package com.ucab.fcpserver4j.servicio;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
-import com.ucab.fcpserver4j.comun.utilidades.Global;
+import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
+import com.ucab.fcpserver4j.logica.comandos.servidores.seleccionservidorprincipal.ComandoSeleccionarPrincipal;
 import com.ucab.fcpserver4j.logica.mensajes.core.MensajeManager;
 import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
 
@@ -44,10 +45,9 @@ public class MonitorearServidor implements Runnable
         }
         catch( IOException e )
         {
-            Global.obtenerGlobal().getServidoresActivos().remove( servidor );
-            //verificar si es principal
-            System.out.println( "muere servidor  "+e.toString() );
-            System.out.println( e.toString() );
+            ComandoSeleccionarPrincipal comando = new ComandoSeleccionarPrincipal( servidor );
+            comando.ejecutar();
+            System.out.println( "muere servidor  "+servidor.getNombre()+" - "+servidor.getIp()+servidor.getPuerto() );
         }
     }
 }

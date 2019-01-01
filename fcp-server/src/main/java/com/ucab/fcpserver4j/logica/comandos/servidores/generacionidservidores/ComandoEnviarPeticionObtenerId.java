@@ -1,8 +1,8 @@
-package com.ucab.fcpserver4j.logica.comandos.servidores.salida.generacionidservidores;
+package com.ucab.fcpserver4j.logica.comandos.servidores.generacionidservidores;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
-import com.ucab.fcpserver4j.comun.utilidades.Global;
+import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.mensajes.core.MensajeManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
 import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
@@ -28,14 +28,14 @@ public class ComandoEnviarPeticionObtenerId extends Comando<Boolean>
     @Override
     public Boolean ejecutar()
     {
-        for( Servidor servidor : Global.obtenerGlobal().getServidoresActivos() )
+        for( Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos() )
         {
             try
             {
                 if(! servidor.isLocal() )
                 {
                     // Obtengo el nombre del servidor local (yo)
-                    String nombreServidorLocal = Global.obtenerGlobal().getServidorLocal().getNombre();
+                    String nombreServidorLocal = ServerManager.obtenerGlobal().getServidorLocal().getNombre();
 
                     // Instancio el mensaje de salida para obtener el id de los otros servidores activos.
                     IMensajeSalida obtenerIdServidor = new ObtenerIdServidor( nombreServidorLocal );
@@ -58,7 +58,7 @@ public class ComandoEnviarPeticionObtenerId extends Comando<Boolean>
             catch( IOException e )
             {
                 // Si un servidor se desconecta en el proceso, se elimina de la lista de servidores activos.
-                Global.obtenerGlobal().getServidoresActivos().remove( servidor );
+                ServerManager.obtenerGlobal().getServidoresActivos().remove( servidor );
                 System.out.println( String.format( LeerPropiedad.SERVIDOR_DESCONECTADO, servidor.getIp(),
                                                    servidor.getPuerto(), e.toString() ) );
             }

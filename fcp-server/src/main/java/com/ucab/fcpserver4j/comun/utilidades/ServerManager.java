@@ -5,9 +5,9 @@ import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Global
+public class ServerManager
 {
-    private static Global singleton;
+    private static ServerManager singleton;
     private static List<Servidor> servidoresActivos = new ArrayList<>();
     private static Servidor servidorLocal = new Servidor();
     private static boolean seleccionEnProceso = false;
@@ -15,11 +15,6 @@ public class Global
     public List<Servidor> getServidoresActivos()
     {
         return servidoresActivos;
-    }
-
-    public void setServidoresActivos( List<Servidor> servidoresActivos )
-    {
-        this.servidoresActivos = servidoresActivos;
     }
 
     public Servidor getServidorLocal()
@@ -42,13 +37,13 @@ public class Global
         this.seleccionEnProceso = seleccionEnProceso;
     }
 
-    private Global()
+    private ServerManager()
     { }
 
-    public static synchronized Global obtenerGlobal()
+    public static synchronized ServerManager obtenerGlobal()
     {
         if(singleton == null)
-            singleton = new Global();
+            singleton = new ServerManager();
 
         return singleton;
     }

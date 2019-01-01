@@ -1,9 +1,9 @@
-package com.ucab.fcpserver4j.logica.comandos.servidores.salida.generacionidservidores;
+package com.ucab.fcpserver4j.logica.comandos.servidores.generacionidservidores;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.Conexion;
-import com.ucab.fcpserver4j.comun.utilidades.Global;
+import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
 
 import java.io.IOException;
@@ -46,7 +46,7 @@ public class ComandoCrearListaServidores extends Comando<Boolean>
                     host.setPuerto( Integer.parseInt( direccion[ 1 ] ) );
                     host.setNombre( direccion[ 2 ] );
                     host.setConexion( conexion );
-                    Global.obtenerGlobal().getServidoresActivos().add( host );
+                    ServerManager.obtenerGlobal().getServidoresActivos().add( host );
                 }
                 catch ( IOException | NoSuchAlgorithmException e )
                 {

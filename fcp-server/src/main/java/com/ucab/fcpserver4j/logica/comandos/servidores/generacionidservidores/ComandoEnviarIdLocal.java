@@ -1,9 +1,9 @@
-package com.ucab.fcpserver4j.logica.comandos.servidores.salida.generacionidservidores;
+package com.ucab.fcpserver4j.logica.comandos.servidores.generacionidservidores;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
-import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
-import com.ucab.fcpserver4j.comun.utilidades.Global;
+import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
+import com.ucab.fcpserver4j.logica.comandos.servidores.seleccionservidorprincipal.ComandoSeleccionarPrincipal;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.salida.AsignarIdServidor;
 import com.ucab.fcpserver4j.servicio.MonitorearServidor;
 
@@ -29,7 +29,7 @@ public class ComandoEnviarIdLocal extends Comando<Boolean>
     @Override
     public Boolean ejecutar()
     {
-        for( Servidor servidor : Global.obtenerGlobal().getServidoresActivos() )
+        for( Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos() )
         {
             try
             {
@@ -44,10 +44,11 @@ public class ComandoEnviarIdLocal extends Comando<Boolean>
             }
             catch( IOException e )
             {
-                //TODO: Verificar quien es el nuevo servidor principal
-                Global.obtenerGlobal().getServidoresActivos().remove( servidor );
-                System.out.println( String.format( LeerPropiedad.SERVIDOR_DESCONECTADO, servidor.getIp(),
-                                                   servidor.getPuerto(), e.toString() ) );
+                ComandoSeleccionarPrincipal comando = new ComandoSeleccionarPrincipal( servidor );
+                comando.ejecutar();
+                System.out.println( "muere servidor (2)  "
+                                    +servidor.getNombre()+" - "
+                                    +servidor.getIp()+servidor.getPuerto() );
             }
         }
 

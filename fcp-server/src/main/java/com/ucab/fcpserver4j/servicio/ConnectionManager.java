@@ -3,7 +3,7 @@ package com.ucab.fcpserver4j.servicio;
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.Conexion;
-import com.ucab.fcpserver4j.comun.utilidades.Global;
+import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.mensajes.core.MensajeManager;
 import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
 import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
@@ -63,7 +63,7 @@ public class ConnectionManager implements Runnable
         Servidor servidor = crearServidor( conexion, entrada.obtenerString( PropiedadesMensajes.NOMBRESERVIDOR ));
 
         // Agrega el servidor a la lista de servidores activos.
-        Global.obtenerGlobal().getServidoresActivos().add( servidor );
+        ServerManager.obtenerGlobal().getServidoresActivos().add( servidor );
 
         // Procesa el mensaje de entrada inicial.
         MensajeManager.obtenerMensajeManager().ProcesarMensajeServidor( entrada, servidor );

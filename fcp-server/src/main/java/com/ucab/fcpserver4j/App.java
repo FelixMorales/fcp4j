@@ -1,7 +1,7 @@
 package com.ucab.fcpserver4j;
 
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
-import com.ucab.fcpserver4j.logica.comandos.servidores.salida.generacionidservidores.ComandoCompuestoGenerarIds;
+import com.ucab.fcpserver4j.logica.comandos.servidores.generacionidservidores.ComandoCompuestoGenerarIds;
 import com.ucab.fcpserver4j.servicio.Servicio;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;

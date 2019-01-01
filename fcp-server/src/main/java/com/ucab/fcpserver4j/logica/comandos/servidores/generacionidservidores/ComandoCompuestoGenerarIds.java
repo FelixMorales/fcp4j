@@ -1,8 +1,8 @@
-package com.ucab.fcpserver4j.logica.comandos.servidores.salida.generacionidservidores;
+package com.ucab.fcpserver4j.logica.comandos.servidores.generacionidservidores;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
-import com.ucab.fcpserver4j.comun.utilidades.Global;
+import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
 
 /**
@@ -26,7 +26,7 @@ public class ComandoCompuestoGenerarIds extends Comando<Boolean>
         ComandoCrearListaServidores crearListaServidores = new ComandoCrearListaServidores( local );
         crearListaServidores.ejecutar();
 
-        Global.obtenerGlobal().setServidorLocal( localHost );
+        ServerManager.obtenerGlobal().setServidorLocal( localHost );
 
         // Verifica si soy el primer servidor activo, entonces soy el principal.
         // No hace falta enviar la peticion de obtener de id de otros servidores si soy el único.
@@ -43,13 +43,21 @@ public class ComandoCompuestoGenerarIds extends Comando<Boolean>
         }
 
         // Al final del proceso de generacion de id, me agrego a la lista de servidores activos.
-        Global.obtenerGlobal().getServidoresActivos().add( localHost );
+        ServerManager.obtenerGlobal().getServidoresActivos().add( localHost );
+
+        for(Servidor servidorActivo : ServerManager.obtenerGlobal().getServidoresActivos())
+        {
+            System.out.println( "Servidor: "+servidorActivo.getNombre()+" - Info:"
+                                +servidorActivo.getIp()+servidorActivo.getPuerto() +
+                                " - Id:"+servidorActivo.getId() + " - Principal:"+servidorActivo.isPrincipal() );
+        }
+
         return true;
     }
 
     private boolean verificarPrincipal()
     {
-        return ( Global.obtenerGlobal().getServidoresActivos().size() < 1 );
+        return ( ServerManager.obtenerGlobal().getServidoresActivos().size() < 1 );
     }
 
     private Servidor CrearServidorLocal(String direccionLocal)
