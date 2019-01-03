@@ -2,6 +2,8 @@ package com.ucab.fcpserver4j.logica.mensajes.core;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.utilidades.Conexion;
+import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
+import com.ucab.fcpserver4j.logica.mensajes.clientes.entrada.Prueba;
 import com.ucab.fcpserver4j.logica.mensajes.core.constantes.CodigosEntrada;
 import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
 import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeEntradaCliente;
@@ -36,6 +38,7 @@ public class MensajeManager
 
 
         //Clientes
+        mensajesEntradaClientes.put( CodigosEntrada.PRUEBA_CLIENTE, new Prueba() );
     }
 
 
@@ -58,7 +61,14 @@ public class MensajeManager
                 mensaje.obtenerInt( PropiedadesMensajes.TIPOMENSAJE ) );
 
         if(mensajeEntrada != null)
-            mensajeEntrada.ejecutar( mensaje, cliente );
+        {
+            if( ServerManager.obtenerGlobal().getServidorLocal().isPrincipal() )
+                mensajeEntrada.ejecutar( mensaje, cliente );
+            else
+                {
+                    System.out.println( "Lo siento no soy el principal." );
+                }
+        }
         else
             mensajeNoEncontrado( mensaje );
     }

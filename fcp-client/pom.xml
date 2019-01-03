@@ -11,7 +11,13 @@
 
     <groupId>com.ucab.fcpclient4j</groupId>
     <artifactId>fcp-client</artifactId>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+    </dependencies>
     <name>fcp-client</name>
     <build>
         <plugins>

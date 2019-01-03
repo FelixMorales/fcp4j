@@ -2,6 +2,7 @@ com\ucab\fcpserver4j\comun\entidades\Archivo.class
 com\ucab\fcpserver4j\comun\entidades\operaciones\cliente\Coordinador.class
 com\ucab\fcpserver4j\logica\mensajes\core\PaqueteEntrada.class
 com\ucab\fcpserver4j\logica\comandos\servidores\generacionidservidores\ComandoCompuestoGenerarIds.class
+com\ucab\fcpserver4j\logica\mensajes\clientes\entrada\Prueba.class
 com\ucab\fcpserver4j\logica\comandos\servidores\generacionidservidores\ComandoEnviarPeticionObtenerId.class
 com\ucab\fcpserver4j\comun\propiedades\LeerPropiedad.class
 com\ucab\fcpserver4j\logica\comandos\servidores\seleccionservidorprincipal\ComandoSeleccionarPrincipal.class
@@ -12,6 +13,7 @@ com\ucab\fcpserver4j\logica\mensajes\servidores\salida\RespuestaObtenerIdServido
 com\ucab\fcpserver4j\comun\utilidades\ServerManager.class
 com\ucab\fcpserver4j\comun\entidades\operaciones\cliente\Log.class
 com\ucab\fcpserver4j\App.class
+com\ucab\fcpserver4j\logica\mensajes\clientes\salida\RespuestaPrueba.class
 com\ucab\fcpserver4j\comun\utilidades\Conexion.class
 com\ucab\fcpserver4j\logica\comandos\servidores\generacionidservidores\ComandoGenerarIdLocal.class
 com\ucab\fcpserver4j\logica\mensajes\core\constantes\PropiedadesMensajes.class

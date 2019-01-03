@@ -1,5 +1,7 @@
 package com.ucab.fcpclient4j.comun.utilidades;
 
+import com.ucab.fcpclient4j.logica.mensajes.core.interfaces.IMensajeSalida;
+
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
@@ -15,9 +17,20 @@ public class Conexion
     private DataInputStream entrada;
     private DataOutputStream salida;
 
+    public Conexion ( Socket conexion ) throws IOException
+    {
+
+        this.conexion = (SSLSocket) conexion;
+
+        entrada = new DataInputStream ( this.conexion.getInputStream() );
+        salida = new DataOutputStream ( this.conexion.getOutputStream() );
+
+    }
+
     public Conexion ( String ip, int puerto ) throws IOException, NoSuchAlgorithmException
     {
         SSLSocketFactory fabrica = SSLContext.getDefault().getSocketFactory();
+
         conexion = (SSLSocket) fabrica.createSocket( ip, puerto );
 
         entrada = new DataInputStream (conexion.getInputStream());
@@ -34,9 +47,9 @@ public class Conexion
         return entrada.readUTF();
     }
 
-    public void enviarCaracteres (String entrada) throws IOException
+    public void enviarCaracteres ( IMensajeSalida entrada ) throws IOException
     {
-        salida.writeUTF(entrada);
+        salida.writeUTF( entrada.getMensaje() );
     }
 
     public Socket getConexion()
