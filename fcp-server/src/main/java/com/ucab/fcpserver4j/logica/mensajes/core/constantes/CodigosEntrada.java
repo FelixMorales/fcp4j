@@ -11,7 +11,8 @@ public final class CodigosEntrada
 {
 
     //Clientes
-    public static final int PRUEBA_CLIENTE = 1;
+    public static final int HANDSHAKE_CLIENTE = 1;
+    public static final int COMMIT = 2;
 
 
     // Servidores

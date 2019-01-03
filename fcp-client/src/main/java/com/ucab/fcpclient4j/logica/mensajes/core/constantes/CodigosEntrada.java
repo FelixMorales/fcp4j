@@ -9,5 +9,5 @@ package com.ucab.fcpclient4j.logica.mensajes.core.constantes;
  */
 public final class CodigosEntrada
 {
-    public static final int PRUEBA_CLIENTE = 1;
+    public static final int ASIGNAR_SERVIDOR_PRINCIPAL = 0;
 }

@@ -2,8 +2,10 @@ package com.ucab.fcpclient4j.logica.mensajes.core;
 
 
 import com.ucab.fcpclient4j.comun.utilidades.Conexion;
+import com.ucab.fcpclient4j.logica.mensajes.core.constantes.CodigosEntrada;
 import com.ucab.fcpclient4j.logica.mensajes.core.constantes.PropiedadesMensajes;
 import com.ucab.fcpclient4j.logica.mensajes.core.interfaces.IMensajeEntrada;
+import com.ucab.fcpclient4j.logica.mensajes.entrada.AsignarServidorPrincipal;
 
 import java.util.HashMap;
 
@@ -23,7 +25,7 @@ public class MensajeManager
 
     private MensajeManager()
     {
-        //mensajesEntrada.put( CodigosEntrada.OBTENER_ID, new ObtenerIdServidor() );
+        mensajesEntrada.put( CodigosEntrada.ASIGNAR_SERVIDOR_PRINCIPAL, new AsignarServidorPrincipal() );
     }
 
 

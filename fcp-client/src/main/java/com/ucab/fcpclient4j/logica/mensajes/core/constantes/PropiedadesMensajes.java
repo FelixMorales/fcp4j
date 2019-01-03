@@ -12,4 +12,6 @@ public final class PropiedadesMensajes
     public static final String TIPOMENSAJE = "tipo";
     public static final String SERVIDOR = "servidor";
     public static final String NOMBREARCHIVO = "nombreArchivo";
+    public static final String IPSERVIDOR_PRINCIPAL = "ipPrincipal";
+    public static final String PUERTOSERVIDOR_PRINCIPAL = "puertoPrincipal";
 }

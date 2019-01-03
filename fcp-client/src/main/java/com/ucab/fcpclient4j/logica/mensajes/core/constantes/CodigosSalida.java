@@ -9,5 +9,6 @@ package com.ucab.fcpclient4j.logica.mensajes.core.constantes;
  */
 public final class CodigosSalida
 {
-    public static final int PRUEBA_CLIENTE = 1;
+    public static final int HANDS_SHAKE = 1;
+    public static final int COMMIT = 2;
 }

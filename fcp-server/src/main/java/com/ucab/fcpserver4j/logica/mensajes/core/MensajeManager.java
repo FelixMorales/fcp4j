@@ -3,8 +3,11 @@ package com.ucab.fcpserver4j.logica.mensajes.core;
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.utilidades.Conexion;
 import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
-import com.ucab.fcpserver4j.logica.mensajes.clientes.entrada.Prueba;
+import com.ucab.fcpserver4j.logica.comandos.clientes.salida.ComandoEnviarServidorPrincipal;
+import com.ucab.fcpserver4j.logica.mensajes.clientes.entrada.Commit;
+import com.ucab.fcpserver4j.logica.mensajes.clientes.entrada.HandShake;
 import com.ucab.fcpserver4j.logica.mensajes.core.constantes.CodigosEntrada;
+import com.ucab.fcpserver4j.logica.mensajes.core.constantes.CodigosSalida;
 import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
 import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeEntradaCliente;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.AsignarIdServidor;
@@ -38,7 +41,8 @@ public class MensajeManager
 
 
         //Clientes
-        mensajesEntradaClientes.put( CodigosEntrada.PRUEBA_CLIENTE, new Prueba() );
+        mensajesEntradaClientes.put( CodigosEntrada.HANDSHAKE_CLIENTE, new HandShake() );
+        mensajesEntradaClientes.put( CodigosEntrada.COMMIT, new Commit() );
     }
 
 
@@ -66,7 +70,8 @@ public class MensajeManager
                 mensajeEntrada.ejecutar( mensaje, cliente );
             else
                 {
-                    System.out.println( "Lo siento no soy el principal." );
+                    ComandoEnviarServidorPrincipal comando = new ComandoEnviarServidorPrincipal(cliente);
+                    comando.ejecutar();
                 }
         }
         else
