@@ -1,11 +1,13 @@
 com\ucab\fcpclient4j\logica\mensajes\core\MensajeManager.class
 com\ucab\fcpclient4j\App.class
 com\ucab\fcpclient4j\logica\mensajes\entrada\AsignarServidorPrincipal.class
+com\ucab\fcpclient4j\logica\comandos\gestionararchivos\ComandoBytesToFile.class
 com\ucab\fcpclient4j\logica\mensajes\core\constantes\CodigosEntrada.class
 com\ucab\fcpclient4j\logica\mensajes\salida\Commit.class
 com\ucab\fcpclient4j\logica\mensajes\core\MensajeSalida.class
 com\ucab\fcpclient4j\comun\entidades\Servidor.class
 com\ucab\fcpclient4j\comun\entidades\operaciones\cliente\Commit.class
+com\ucab\fcpclient4j\logica\comandos\commit\ComandoRealizarCommit.class
 com\ucab\fcpclient4j\comun\entidades\operaciones\cliente\Update.class
 com\ucab\fcpclient4j\logica\comandos\Comando.class
 com\ucab\fcpclient4j\logica\mensajes\core\PaqueteEntrada.class
@@ -14,6 +16,7 @@ com\ucab\fcpclient4j\logica\mensajes\salida\HandShake.class
 com\ucab\fcpclient4j\logica\comandos\comunicacionInicial\ComandoSeleccionarServidor.class
 com\ucab\fcpclient4j\comun\propiedades\LeerPropiedad.class
 com\ucab\fcpclient4j\comun\propiedades\BasePropiedad.class
+com\ucab\fcpclient4j\logica\comandos\gestionararchivos\ComandoFileToByte.class
 com\ucab\fcpclient4j\comun\utilidades\ServerManager.class
 com\ucab\fcpclient4j\logica\mensajes\core\interfaces\IMensajeEntrada.class
 com\ucab\fcpclient4j\comun\entidades\operaciones\cliente\Log.class

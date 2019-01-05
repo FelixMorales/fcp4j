@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import java.util.Base64;
+import java.util.Date;
 
 /**
  * Name:                  PaqueteEntrada
@@ -39,6 +40,11 @@ public class PaqueteEntrada
     public byte[] obtenerBytes(String propiedad)
     {
         return Base64.getDecoder().decode( mensaje.get( propiedad ).getAsString() );
+    }
+
+    public Date obtenerDate(String propiedad)
+    {
+        return new Date(mensaje.get(propiedad).getAsInt());
     }
 
     public  String GetMensaje()

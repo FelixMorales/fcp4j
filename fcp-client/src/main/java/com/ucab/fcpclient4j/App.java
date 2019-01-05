@@ -2,6 +2,7 @@ package com.ucab.fcpclient4j;
 
 import com.ucab.fcpclient4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpclient4j.comun.utilidades.ServerManager;
+import com.ucab.fcpclient4j.logica.comandos.commit.ComandoRealizarCommit;
 import com.ucab.fcpclient4j.logica.comandos.comunicacionInicial.ComandoSeleccionarServidor;
 import com.ucab.fcpclient4j.logica.mensajes.core.MensajeManager;
 import com.ucab.fcpclient4j.logica.mensajes.core.PaqueteEntrada;
@@ -33,11 +34,8 @@ public class App
             MensajeManager.obtenerMensajeManager().ProcesarMensaje( mensajeEntrada, null );
             System.out.println( "mensaje recibido"+ mensajeUTF );
 
-            ServerManager.obtenerGlobal().getServidorPrincipal().enviarCaracteres( new Commit() );
-            String mensajeUTF2 = ServerManager.obtenerGlobal().getServidorPrincipal().recibirCaracteres();
-            ServerManager.obtenerGlobal().getServidorPrincipal().getConexion().close();
-
-            System.out.println( "mensaje respuesta commit: "+mensajeUTF2 );
+            ComandoRealizarCommit comandoCommit = new ComandoRealizarCommit( "probando.txt"  );
+            comandoCommit.ejecutar();
         }
     }
 }

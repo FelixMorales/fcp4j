@@ -1,4 +1,4 @@
-package com.ucab.fcpserver4j.logica.comandos.clientes.salida;
+package com.ucab.fcpserver4j.logica.comandos.clientes.enviarservidorprincipal;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.utilidades.Conexion;

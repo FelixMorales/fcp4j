@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeSalida;
 
 import java.util.Base64;
+import java.util.Date;
 
 /**
  * Name:                  MensajeSalida
@@ -52,5 +53,10 @@ public class MensajeSalida implements IMensajeSalida
     public void agregarElemento(String nombre, byte[] valor)
     {
         mensaje.addProperty( nombre, Base64.getEncoder().encodeToString( valor ) );
+    }
+
+    public void agregarElemento(String nombre, Date valor)
+    {
+        mensaje.addProperty( nombre, valor.getTime() );
     }
 }

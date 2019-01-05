@@ -13,82 +13,82 @@ public class Archivo
     private Servidor localizacion;
     private byte[] contenido;
 
-    private long getId()
+    public long getId()
     {
         return id;
     }
 
-    private void setId( long id )
+    public void setId( long id )
     {
         this.id = id;
     }
 
-    private String getNombre()
+    public String getNombre()
     {
         return nombre;
     }
 
-    private void setNombre( String nombre )
+    public void setNombre( String nombre )
     {
         this.nombre = nombre;
     }
 
-    private int getVersion()
+    public int getVersion()
     {
         return version;
     }
 
-    private void setVersion( int version )
+    public void setVersion( int version )
     {
         this.version = version;
     }
 
-    private String getAutor()
+    public String getAutor()
     {
         return autor;
     }
 
-    private void setAutor( String autor )
+    public void setAutor( String autor )
     {
         this.autor = autor;
     }
 
-    private Date getFechaCreacion()
+    public Date getFechaCreacion()
     {
         return fechaCreacion;
     }
 
-    private void setFechaCreacion( Date fechaCreacion )
+    public void setFechaCreacion( Date fechaCreacion )
     {
         this.fechaCreacion = fechaCreacion;
     }
 
-    private Servidor getLocalizacion()
+    public Servidor getLocalizacion()
     {
         return localizacion;
     }
 
-    private void setLocalizacion( Servidor localizacion )
+    public void setLocalizacion( Servidor localizacion )
     {
         this.localizacion = localizacion;
     }
 
-    private byte[] getContenido()
+    public byte[] getContenido()
     {
         return contenido;
     }
 
-    private void setContenido( byte[] contenido )
+    public void setContenido( byte[] contenido )
     {
         this.contenido = contenido;
     }
 
-    private String getIp()
+    public String getIp()
     {
         return ip;
     }
 
-    private void setIp( String ip )
+    public void setIp( String ip )
     {
         this.ip = ip;
     }
