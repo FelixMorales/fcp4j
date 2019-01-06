@@ -1,3 +1,4 @@
+com\ucab\fcpserver4j\logica\comandos\gestionararchivos\ComandoFileToByte.class
 com\ucab\fcpserver4j\comun\entidades\Archivo.class
 com\ucab\fcpserver4j\comun\entidades\operaciones\cliente\Coordinador.class
 com\ucab\fcpserver4j\logica\mensajes\core\PaqueteEntrada.class
@@ -10,7 +11,7 @@ com\ucab\fcpserver4j\logica\comandos\servidores\seleccionservidorprincipal\Coman
 com\ucab\fcpserver4j\logica\comandos\servidores\generacionidservidores\ComandoEnviarIdLocal.class
 com\ucab\fcpserver4j\logica\mensajes\core\interfaces\IMensajeEntrada.class
 com\ucab\fcpserver4j\logica\comandos\clientes\enviarservidorprincipal\ComandoEnviarServidorPrincipal.class
-com\ucab\fcpserver4j\logica\comandos\clientes\gestionararchivos\ComandoFileToByte.class
+com\ucab\fcpserver4j\logica\comandos\gestionararchivos\ComandoBytesToFile.class
 com\ucab\fcpserver4j\logica\comandos\servidores\generacionidservidores\ComandoCrearListaServidores.class
 com\ucab\fcpserver4j\logica\mensajes\clientes\salida\EnviarServidorPrincipal.class
 com\ucab\fcpserver4j\logica\mensajes\servidores\salida\RespuestaObtenerIdServidor.class
@@ -18,7 +19,6 @@ com\ucab\fcpserver4j\logica\mensajes\clientes\salida\RespuestaCommit.class
 com\ucab\fcpserver4j\comun\utilidades\ServerManager.class
 com\ucab\fcpserver4j\comun\entidades\operaciones\cliente\Log.class
 com\ucab\fcpserver4j\App.class
-com\ucab\fcpserver4j\logica\comandos\clientes\gestionararchivos\ComandoBytesToFile.class
 com\ucab\fcpserver4j\logica\mensajes\clientes\salida\RespuestaHandShake.class
 com\ucab\fcpserver4j\comun\utilidades\Conexion.class
 com\ucab\fcpserver4j\logica\comandos\servidores\generacionidservidores\ComandoGenerarIdLocal.class
@@ -42,5 +42,6 @@ com\ucab\fcpserver4j\comun\propiedades\BasePropiedad.class
 com\ucab\fcpserver4j\logica\mensajes\core\interfaces\IMensajeSalida.class
 com\ucab\fcpserver4j\servicio\ConnectionManager.class
 com\ucab\fcpserver4j\logica\mensajes\servidores\salida\ObtenerIdServidor.class
+com\ucab\fcpserver4j\persistencia\DatabaseManager.class
 com\ucab\fcpserver4j\logica\comandos\Comando.class
 com\ucab\fcpserver4j\logica\mensajes\servidores\entrada\AsignarIdServidor.class

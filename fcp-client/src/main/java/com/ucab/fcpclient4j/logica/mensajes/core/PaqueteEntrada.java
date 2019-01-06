@@ -44,7 +44,7 @@ public class PaqueteEntrada
 
     public Date obtenerDate(String propiedad)
     {
-        return new Date(mensaje.get(propiedad).getAsInt());
+        return new Date(mensaje.get(propiedad).getAsLong());
     }
 
     public  String GetMensaje()

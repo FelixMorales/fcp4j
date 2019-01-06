@@ -3,23 +3,21 @@ package com.ucab.fcpclient4j.logica.comandos.commit;
 import com.ucab.fcpclient4j.comun.entidades.Archivo;
 import com.ucab.fcpclient4j.comun.utilidades.ServerManager;
 import com.ucab.fcpclient4j.logica.comandos.Comando;
+import com.ucab.fcpclient4j.logica.comandos.IComandoParametro;
 import com.ucab.fcpclient4j.logica.comandos.gestionararchivos.ComandoFileToByte;
 import com.ucab.fcpclient4j.logica.mensajes.salida.Commit;
 
 import java.io.IOException;
 import java.util.Date;
 
-public class ComandoRealizarCommit extends Comando<Boolean>
+public class ComandoRealizarCommit implements IComandoParametro
 {
-    String nombreArchivo;
-    public ComandoRealizarCommit(String nombreArchivo)
-    {
-        this.nombreArchivo = nombreArchivo;
-    }
-
     @Override
-    public Boolean ejecutar() throws IOException
+    public void ejecutarArgumento( String[] parametros ) throws IOException
     {
+
+        String nombreArchivo = parametros[1].toLowerCase();
+
         ComandoFileToByte comando = new ComandoFileToByte( nombreArchivo );
 
         Archivo archivo = new Archivo();
@@ -34,8 +32,5 @@ public class ComandoRealizarCommit extends Comando<Boolean>
         ServerManager.obtenerGlobal().getServidorPrincipal().getConexion().close();
 
         System.out.println( "mensaje respuesta commit: "+mensajeUTF );
-
-
-        return null;
     }
 }

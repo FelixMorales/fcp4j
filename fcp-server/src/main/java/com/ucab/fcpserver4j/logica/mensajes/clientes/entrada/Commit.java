@@ -2,10 +2,8 @@ package com.ucab.fcpserver4j.logica.mensajes.clientes.entrada;
 
 import com.ucab.fcpserver4j.comun.entidades.Archivo;
 import com.ucab.fcpserver4j.comun.utilidades.Conexion;
-import com.ucab.fcpserver4j.logica.comandos.clientes.gestionararchivos.ComandoBytesToFile;
 import com.ucab.fcpserver4j.logica.comandos.clientes.gestionarcommit.ComandoRecibirCommit;
 import com.ucab.fcpserver4j.logica.mensajes.clientes.salida.RespuestaCommit;
-import com.ucab.fcpserver4j.logica.mensajes.clientes.salida.RespuestaHandShake;
 import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
 import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
 import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeEntradaCliente;

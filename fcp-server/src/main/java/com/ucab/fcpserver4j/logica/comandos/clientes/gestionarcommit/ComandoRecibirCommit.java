@@ -1,8 +1,12 @@
 package com.ucab.fcpserver4j.logica.comandos.clientes.gestionarcommit;
 
 import com.ucab.fcpserver4j.comun.entidades.Archivo;
+import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
-import com.ucab.fcpserver4j.logica.comandos.clientes.gestionararchivos.ComandoBytesToFile;
+import com.ucab.fcpserver4j.logica.comandos.gestionararchivos.ComandoBytesToFile;
+import com.ucab.fcpserver4j.persistencia.DatabaseManager;
+
+import java.io.IOException;
 
 public class ComandoRecibirCommit extends Comando<Boolean>
 {
@@ -13,12 +17,16 @@ public class ComandoRecibirCommit extends Comando<Boolean>
     }
 
     @Override
-    public Boolean ejecutar()
+    public Boolean ejecutar() throws IOException
     {
 
         ComandoBytesToFile comando = new ComandoBytesToFile( archivo.getContenido(), archivo.getNombre()  );
 
         comando.ejecutar();
+
+        archivo.setLocalizacion( ServerManager.obtenerGlobal().getServidorLocal() );
+
+        DatabaseManager.obtenerSingleton().AgregarArchivo( archivo );
 
         System.out.println( "Archivo creado exitosamente" );
 
