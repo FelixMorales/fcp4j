@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -215,5 +217,41 @@ public class DatabaseManager
         {
             e.printStackTrace();
         }
+    }
+
+    public List<Archivo> ObtenerPersistenciaLocal()
+    {
+        List<Archivo> retorno = new ArrayList<>(  );
+        String sql = "SELECT nombre,version,autor FROM archivo";
+        PreparedStatement pstmt = null;
+
+        try
+        {
+            Conectar();
+
+            pstmt = conexion.prepareStatement( sql );
+            ResultSet rs  = pstmt.executeQuery();
+
+            while(rs.next())
+            {
+                Archivo archivo = new Archivo();
+                archivo.setNombre( rs.getString( "nombre" ) );
+                archivo.setVersion( rs.getInt( "version" ) );
+                archivo.setAutor( rs.getString( "autor" ) );
+                retorno.add( archivo );
+            }
+
+            CerrarResultSet( rs );
+            CerrarPreparedStatement( pstmt );
+        }
+        catch ( SQLException  | ClassNotFoundException e )
+        {
+            CerrarPreparedStatement( pstmt );
+        }
+        finally
+        {
+            Desconectar();
+        }
+        return retorno;
     }
 }

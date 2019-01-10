@@ -14,7 +14,7 @@ import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.PeticionPersisten
 import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.RespuestaObtenerIdServidor;
 import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeEntrada;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.ObtenerIdServidor;
-import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.RespuestaPeticionPersistencia;
+import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.AsignarPersistenciaLocal;
 
 import java.util.HashMap;
 
@@ -40,7 +40,8 @@ public class MensajeManager
         mensajesEntradaServidores.put( CodigosEntrada.ASIGNAR_ID_SERIVDORES, new RespuestaObtenerIdServidor() );
         mensajesEntradaServidores.put( CodigosEntrada.ASIGNAR_ID_SERVIDOR, new AsignarIdServidor() );
         mensajesEntradaServidores.put( CodigosEntrada.PETICION_PERSISTENCIA, new PeticionPersistencia() );
-        mensajesEntradaServidores.put( CodigosEntrada.RESPUESTA_PETICION_PERSISTENCIA, new RespuestaPeticionPersistencia() );
+        mensajesEntradaServidores.put( CodigosEntrada.RESPUESTA_PETICION_PERSISTENCIA, new AsignarPersistenciaLocal() );
+        mensajesEntradaServidores.put( CodigosEntrada.ENVIAR_PERSISTENCIA, new AsignarPersistenciaLocal() );
 
 
         //Clientes

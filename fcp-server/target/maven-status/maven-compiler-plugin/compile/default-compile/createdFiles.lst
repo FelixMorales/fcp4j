@@ -5,7 +5,6 @@ com\ucab\fcpserver4j\comun\propiedades\LeerPropiedad.class
 com\ucab\fcpserver4j\logica\mensajes\core\interfaces\IMensajeEntrada.class
 com\ucab\fcpserver4j\logica\comandos\gestionararchivos\ComandoBytesToFile.class
 com\ucab\fcpserver4j\logica\mensajes\servidores\entrada\PeticionPersistencia.class
-com\ucab\fcpserver4j\logica\mensajes\servidores\entrada\RespuestaPeticionPersistencia.class
 com\ucab\fcpserver4j\logica\mensajes\servidores\salida\RespuestaObtenerIdServidor.class
 com\ucab\fcpserver4j\logica\mensajes\clientes\salida\RespuestaCommit.class
 com\ucab\fcpserver4j\comun\utilidades\ServerManager.class
@@ -32,11 +31,13 @@ com\ucab\fcpserver4j\logica\mensajes\core\PaqueteEntrada.class
 com\ucab\fcpserver4j\logica\comandos\servidores\sincronizacioninicial\ComandoCrearListaServidores.class
 com\ucab\fcpserver4j\logica\comandos\servidores\sincronizacioninicial\ComandoCompuestoGenerarIds.class
 com\ucab\fcpserver4j\logica\comandos\servidores\seleccionservidorprincipal\ComandoSeleccionarPrincipal.class
+com\ucab\fcpserver4j\logica\mensajes\servidores\entrada\AsignarPersistenciaLocal.class
 com\ucab\fcpserver4j\logica\comandos\clientes\enviarservidorprincipal\ComandoEnviarServidorPrincipal.class
 com\ucab\fcpserver4j\logica\mensajes\clientes\salida\EnviarServidorPrincipal.class
 com\ucab\fcpserver4j\logica\comandos\servidores\sincronizacioninicial\ComandoEnviarIdLocal.class
 com\ucab\fcpserver4j\App.class
 com\ucab\fcpserver4j\logica\mensajes\clientes\salida\RespuestaHandShake.class
+com\ucab\fcpserver4j\logica\mensajes\servidores\salida\EnviarPersistencia.class
 com\ucab\fcpserver4j\comun\entidades\operaciones\cliente\Update.class
 com\ucab\fcpserver4j\logica\mensajes\servidores\entrada\RespuestaObtenerIdServidor.class
 com\ucab\fcpserver4j\servicio\Servicio.class

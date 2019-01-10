@@ -10,7 +10,7 @@ import com.ucab.fcpserver4j.persistencia.DatabaseManager;
 
 import java.io.IOException;
 
-public class RespuestaPeticionPersistencia implements IMensajeEntrada
+public class AsignarPersistenciaLocal implements IMensajeEntrada
 {
     @Override
     public void ejecutar( PaqueteEntrada mensaje, Servidor servidor )

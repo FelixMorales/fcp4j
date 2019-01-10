@@ -3,9 +3,11 @@ package com.ucab.fcpserver4j.logica.comandos.servidores.sincronizacioninicial;
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
+import com.ucab.fcpserver4j.logica.comandos.gestionararchivos.ComandoFileToByte;
 import com.ucab.fcpserver4j.logica.mensajes.core.MensajeManager;
 import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
 import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeSalida;
+import com.ucab.fcpserver4j.logica.mensajes.servidores.salida.EnviarPersistencia;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.salida.PeticionPersistencia;
 
 import java.io.IOException;
@@ -58,17 +60,44 @@ public class ComandoSincronizarHistoricos extends Comando<Boolean>
 
     private void enviarArchivoPersistenciaLocal()
     {
+        boolean error = false;
         System.out.println( "Soy el local y envio mi persistencia a los demas ("+ServerManager.obtenerGlobal().getServidorLocal().getHistorico()+")");
-        for(Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos())
+
+        byte[] contenidoPersistencia = null;
+
+        ComandoFileToByte comando = new ComandoFileToByte(  );
+
+        try
         {
-            if(!servidor.isLocal())
+            contenidoPersistencia = comando.ejecutar();
+        }
+        catch ( IOException e )
+        {
+            error = true;
+            e.printStackTrace();
+        }
+
+        if(!error && contenidoPersistencia != null)
+        {
+            for(Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos())
             {
-                if(servidor.getHistorico() < ServerManager.obtenerGlobal().getServidorLocal().getHistorico())
+                if(!servidor.isLocal())
                 {
-                    // Mensaje salida envio mi historico y archivoSqlite
+                    if(servidor.getHistorico() < ServerManager.obtenerGlobal().getServidorLocal().getHistorico())
+                    {
+                        try
+                        {
+                            servidor.getConexion().enviarCaracteres( new EnviarPersistencia( contenidoPersistencia ) );
+                        }
+                        catch ( IOException e )
+                        {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }
         }
+
     }
 
     private void enviarPeticionObtenerArchivoPersistenciaActualizado(Servidor servidorActualizado)
