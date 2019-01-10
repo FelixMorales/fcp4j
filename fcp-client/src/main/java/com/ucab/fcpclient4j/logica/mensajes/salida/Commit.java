@@ -18,7 +18,6 @@ public class Commit extends MensajeSalida
         agregarElemento( PropiedadesMensajes.NOMBREARCHIVO, archivo.getNombre() );
         agregarElemento( PropiedadesMensajes.CONTENIDOARCHIVO, archivo.getContenido() );
         agregarElemento( PropiedadesMensajes.AUTORARCHIVO, archivo.getAutor() );
-        agregarElemento( PropiedadesMensajes.FECHA_ARCHIVO, archivo.getFechaCreacion() );
 
     }
 }

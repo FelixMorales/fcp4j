@@ -1,4 +1,4 @@
-package com.ucab.fcpserver4j.logica.comandos.servidores.generacionidservidores;
+package com.ucab.fcpserver4j.logica.comandos.servidores.sincronizacioninicial;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
@@ -67,6 +67,10 @@ public class ComandoEnviarPeticionObtenerId extends Comando<Boolean>
         // Una vez tengo el id de todos los servidores, genero mi id local.
         ComandoGenerarIdLocal generarIdServidor = new ComandoGenerarIdLocal();
         generarIdServidor.ejecutar();
+
+        // Sincronizo el archivo segun el historico de todos los servidores.
+        ComandoSincronizarHistoricos comandoSincronizar = new ComandoSincronizarHistoricos();
+        comandoSincronizar.ejecutar();
 
         // Una vez genero mi id local, la envio a todos los servidores para que la asigen.
         ComandoEnviarIdLocal enviarIdGenerado = new ComandoEnviarIdLocal();

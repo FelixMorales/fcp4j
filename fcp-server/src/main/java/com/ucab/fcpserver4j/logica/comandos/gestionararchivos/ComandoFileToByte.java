@@ -14,6 +14,12 @@ public class ComandoFileToByte extends Comando<byte[]>
     {
         this.archivo = new File("./persistencia/archivos/"+generarNombre( archivo ));
     }
+
+    public ComandoFileToByte()
+    {
+        this.archivo = new File("./persistencia/db/archivosServidor.db");
+    }
+
     @Override
     public byte[] ejecutar() throws IOException
     {

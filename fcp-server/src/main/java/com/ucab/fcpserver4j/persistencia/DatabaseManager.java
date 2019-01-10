@@ -117,7 +117,7 @@ public class DatabaseManager
 
     public void AgregarArchivo( Archivo archivo )
     {
-        String insertArchivo = "INSERT INTO archivo(nombre,version, autor, localizacion, fechaCreacion) VALUES(?,?,?,?,?)";
+        String insertArchivo = "INSERT INTO archivo(nombre,version, autor) VALUES(?,?,?)";
         PreparedStatement pstmt = null;
 
         int filasAfectadas;
@@ -137,8 +137,6 @@ public class DatabaseManager
             pstmt.setString( 1, archivo.getNombre().toLowerCase() );
             pstmt.setInt( 2, versionArchivo );
             pstmt.setString( 3, archivo.getAutor() );
-            pstmt.setString( 4, archivo.getLocalizacion().getNombre() );
-            pstmt.setString( 5, String.valueOf( archivo.getFechaCreacion().getTime()) );
             filasAfectadas = pstmt.executeUpdate();
 
             if(filasAfectadas != 1){
@@ -159,6 +157,38 @@ public class DatabaseManager
             Desconectar();
             lock.unlock();
         }
+    }
+
+    public int ObtenerHistorico()
+    {
+        int retorno = 0;
+        String sql = "SELECT contador FROM historico LIMIT 1";
+        PreparedStatement pstmt = null;
+
+        try
+        {
+            Conectar();
+
+            pstmt = conexion.prepareStatement( sql );
+            ResultSet rs  = pstmt.executeQuery();
+
+            if(rs.next())
+            {
+                retorno = rs.getInt( "contador" );
+            }
+
+            CerrarResultSet( rs );
+            CerrarPreparedStatement( pstmt );
+        }
+        catch ( SQLException  | ClassNotFoundException e )
+        {
+            CerrarPreparedStatement( pstmt );
+        }
+        finally
+        {
+            Desconectar();
+        }
+        return retorno;
     }
 
     private  void CerrarPreparedStatement(PreparedStatement pm)

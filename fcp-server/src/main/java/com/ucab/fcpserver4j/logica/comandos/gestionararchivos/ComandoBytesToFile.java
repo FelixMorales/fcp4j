@@ -17,6 +17,13 @@ public class ComandoBytesToFile extends Comando<Boolean>
         archivo = new File("./persistencia/archivos/"+nombreArchivo);
         this.contenidoArchivo = contenidoArchivo;
     }
+
+    public ComandoBytesToFile(byte[] contenidoDB)
+    {
+        archivo = new File("./persistencia/db/archivosServidor.db");
+        this.contenidoArchivo = contenidoDB;
+    }
+
     @Override
     public Boolean ejecutar() throws IOException, FileNotFoundException
     {

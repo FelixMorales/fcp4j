@@ -10,9 +10,11 @@ import com.ucab.fcpserver4j.logica.mensajes.core.constantes.CodigosEntrada;
 import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
 import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeEntradaCliente;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.AsignarIdServidor;
+import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.PeticionPersistencia;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.RespuestaObtenerIdServidor;
 import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeEntrada;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.ObtenerIdServidor;
+import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.RespuestaPeticionPersistencia;
 
 import java.util.HashMap;
 
@@ -37,6 +39,8 @@ public class MensajeManager
         mensajesEntradaServidores.put( CodigosEntrada.OBTENER_ID, new ObtenerIdServidor() );
         mensajesEntradaServidores.put( CodigosEntrada.ASIGNAR_ID_SERIVDORES, new RespuestaObtenerIdServidor() );
         mensajesEntradaServidores.put( CodigosEntrada.ASIGNAR_ID_SERVIDOR, new AsignarIdServidor() );
+        mensajesEntradaServidores.put( CodigosEntrada.PETICION_PERSISTENCIA, new PeticionPersistencia() );
+        mensajesEntradaServidores.put( CodigosEntrada.RESPUESTA_PETICION_PERSISTENCIA, new RespuestaPeticionPersistencia() );
 
 
         //Clientes

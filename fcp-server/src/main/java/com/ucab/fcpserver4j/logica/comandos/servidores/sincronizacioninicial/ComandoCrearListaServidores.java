@@ -1,4 +1,4 @@
-package com.ucab.fcpserver4j.logica.comandos.servidores.generacionidservidores;
+package com.ucab.fcpserver4j.logica.comandos.servidores.sincronizacioninicial;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;

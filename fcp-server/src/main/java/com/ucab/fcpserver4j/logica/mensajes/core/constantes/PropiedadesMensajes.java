@@ -16,6 +16,8 @@ public final class PropiedadesMensajes
     public static final String SOYPRINCIPAL = "esPrincipal";
     public static final String IPSERVIDOR_PRINCIPAL = "ipPrincipal";
     public static final String PUERTOSERVIDOR_PRINCIPAL = "puertoPrincipal";
+    public static final String HISTORICO_SERVIDOR = "historicoServidor";
+    public static final String CONTENIDO_PERSISTENCIA = "contenidoPersistencia";
 
     public static final String NOMBREARCHIVO = "nombreArchivo";
     public static final String CONTENIDOARCHIVO = "contenidoArchivo";

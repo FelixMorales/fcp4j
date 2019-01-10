@@ -12,5 +12,6 @@ public class RespuestaObtenerIdServidor implements IMensajeEntrada
     {
         servidor.setId( mensaje.obtenerInt( PropiedadesMensajes.IDSERVIDOR ) );
         servidor.setPrincipal( mensaje.obtenerBoolean( PropiedadesMensajes.SOYPRINCIPAL ) );
+        servidor.setHistorico( mensaje.obtenerInt( PropiedadesMensajes.HISTORICO_SERVIDOR ) );
     }
 }

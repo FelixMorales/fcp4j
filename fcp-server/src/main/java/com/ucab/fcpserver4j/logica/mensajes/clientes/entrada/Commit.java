@@ -24,7 +24,6 @@ public class Commit implements IMensajeEntradaCliente
             archivo.setAutor( mensaje.obtenerString( PropiedadesMensajes.AUTORARCHIVO ) );
             archivo.setNombre( mensaje.obtenerString( PropiedadesMensajes.NOMBREARCHIVO ) );
             archivo.setContenido( mensaje.obtenerBytes( PropiedadesMensajes.CONTENIDOARCHIVO ) );
-            archivo.setFechaCreacion( mensaje.obtenerDate( PropiedadesMensajes.FECHA_ARCHIVO ) );
             archivo.setIp(cliente.getConexion().getInetAddress().toString() );
 
             ComandoRecibirCommit comando = new ComandoRecibirCommit( archivo );

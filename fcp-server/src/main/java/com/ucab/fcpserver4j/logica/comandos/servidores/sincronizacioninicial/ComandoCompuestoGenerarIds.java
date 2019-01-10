@@ -1,9 +1,10 @@
-package com.ucab.fcpserver4j.logica.comandos.servidores.generacionidservidores;
+package com.ucab.fcpserver4j.logica.comandos.servidores.sincronizacioninicial;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
+import com.ucab.fcpserver4j.persistencia.DatabaseManager;
 
 /**
  * Name:                  ComandoCompuestoGenerarIds
@@ -68,6 +69,7 @@ public class ComandoCompuestoGenerarIds extends Comando<Boolean>
         localHost.setPuerto( Integer.parseInt( direccionLocal.split( ":" )[1] ) );
         localHost.setNombre( direccionLocal.split( ":" )[2] );
         localHost.setLocal( true );
+        localHost.setHistorico( DatabaseManager.obtenerSingleton().ObtenerHistorico() );
 
         return  localHost;
     }

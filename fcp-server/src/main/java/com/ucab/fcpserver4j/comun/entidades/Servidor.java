@@ -10,6 +10,7 @@ public class Servidor
     private int puerto;
     private boolean principal;
     private boolean local;
+    private int historico;
     private Conexion conexion;
 
     public long getId()
@@ -81,4 +82,8 @@ public class Servidor
     {
         this.conexion = conexion;
     }
+
+    public void setHistorico(int historico){ this.historico = historico; };
+
+    public int getHistorico(){ return this.historico; }
 }

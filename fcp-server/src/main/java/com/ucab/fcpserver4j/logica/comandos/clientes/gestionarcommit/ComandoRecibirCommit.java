@@ -28,8 +28,10 @@ public class ComandoRecibirCommit extends Comando<Boolean>
 
         DatabaseManager.obtenerSingleton().AgregarArchivo( archivo );
 
-        System.out.println( "Archivo creado exitosamente" );
+        ServerManager.obtenerGlobal().getServidorLocal().setHistorico( DatabaseManager.obtenerSingleton().ObtenerHistorico() );
 
+        System.out.println( "Archivo creado exitosamente" );
+        System.out.println( "Historico actualizado:" +ServerManager.obtenerGlobal().getServidorLocal().getHistorico());
 
         return true;
     }

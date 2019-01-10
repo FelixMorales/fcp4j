@@ -18,4 +18,6 @@ public final class CodigosSalida
     public static final int OBTENER_ID_OCUPADO = 101;
     public static final int ASIGNAR_ID_SERVIDORES = 102;
     public static final int ASIGNAR_ID_SERVIDOR = 103;
+    public static final int PETICION_PERSISTENCIA = 104;
+    public static final int RESPUESTA_PETICION_PERSISTENCIA = 105;
 }

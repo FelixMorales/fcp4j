@@ -25,7 +25,6 @@ public class ComandoRealizarCommit implements IComandoParametro
         archivo.setContenido( comando.ejecutar() );
         archivo.setNombre( nombreArchivo );
         archivo.setAutor( "Felix" );
-        archivo.setFechaCreacion( new Date() );
 
         ServerManager.obtenerGlobal().getServidorPrincipal().enviarCaracteres( new Commit( archivo ) );
         String mensajeUTF = ServerManager.obtenerGlobal().getServidorPrincipal().recibirCaracteres();
