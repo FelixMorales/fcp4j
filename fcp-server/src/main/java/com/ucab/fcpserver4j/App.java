@@ -28,17 +28,17 @@ public class App
         catch(IOException e)
         {
             System.out.println( "IOException GLOBAL" );
-            System.out.println( e.toString() );
+            e.printStackTrace();
         }
         catch( NoSuchAlgorithmException e)
         {
             System.out.println( "NoSuchAlgorithmException GLOBAL" );
-            System.out.println( e.toString() );
+            e.printStackTrace();
         }
         catch( Exception e )
         {
             System.out.println( "Exception GLOBAL" );
-            System.out.println( e.toString() );
+            e.printStackTrace();
         }
     }
 }

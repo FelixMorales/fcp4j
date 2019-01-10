@@ -50,9 +50,12 @@ public class ComandoSincronizarHistoricos extends Comando<Boolean>
             }
         }
 
-        if(retorno.getHistorico() < ServerManager.obtenerGlobal().getServidorLocal().getHistorico())
+        if(retorno != null)
         {
-            retorno = ServerManager.obtenerGlobal().getServidorLocal();
+            if(retorno.getHistorico() < ServerManager.obtenerGlobal().getServidorLocal().getHistorico())
+            {
+                retorno = ServerManager.obtenerGlobal().getServidorLocal();
+            }
         }
 
         return retorno;

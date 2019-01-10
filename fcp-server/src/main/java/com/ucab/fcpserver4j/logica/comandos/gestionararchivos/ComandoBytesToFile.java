@@ -1,5 +1,6 @@
 package com.ucab.fcpserver4j.logica.comandos.gestionararchivos;
 
+import com.ucab.fcpserver4j.comun.entidades.Archivo;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
 
 import java.io.File;
@@ -12,10 +13,10 @@ public class ComandoBytesToFile extends Comando<Boolean>
 {
     File archivo;
     byte[] contenidoArchivo;
-    public ComandoBytesToFile(byte[] contenidoArchivo, String nombreArchivo)
+    public ComandoBytesToFile( Archivo archivoCommit )
     {
-        archivo = new File("./persistencia/archivos/"+nombreArchivo);
-        this.contenidoArchivo = contenidoArchivo;
+        archivo = new File("./persistencia/archivos/"+archivoCommit.getNombre()+"&&v="+archivoCommit.getVersion());
+        this.contenidoArchivo = archivoCommit.getContenido();
     }
 
     public ComandoBytesToFile(byte[] contenidoDB)

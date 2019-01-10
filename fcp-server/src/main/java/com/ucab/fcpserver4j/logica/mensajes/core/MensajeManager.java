@@ -11,6 +11,7 @@ import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
 import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeEntradaCliente;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.AsignarIdServidor;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.PeticionPersistencia;
+import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.ReplicarArchivo;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.RespuestaObtenerIdServidor;
 import com.ucab.fcpserver4j.logica.mensajes.core.interfaces.IMensajeEntrada;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.entrada.ObtenerIdServidor;
@@ -42,7 +43,7 @@ public class MensajeManager
         mensajesEntradaServidores.put( CodigosEntrada.PETICION_PERSISTENCIA, new PeticionPersistencia() );
         mensajesEntradaServidores.put( CodigosEntrada.RESPUESTA_PETICION_PERSISTENCIA, new AsignarPersistenciaLocal() );
         mensajesEntradaServidores.put( CodigosEntrada.ENVIAR_PERSISTENCIA, new AsignarPersistenciaLocal() );
-
+        mensajesEntradaServidores.put( CodigosEntrada.REPLICAR_ARCHIVO, new ReplicarArchivo() );
 
         //Clientes
         mensajesEntradaClientes.put( CodigosEntrada.HANDSHAKE_CLIENTE, new HandShake() );

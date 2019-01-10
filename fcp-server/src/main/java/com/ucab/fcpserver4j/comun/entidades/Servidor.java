@@ -2,7 +2,7 @@ package com.ucab.fcpserver4j.comun.entidades;
 
 import com.ucab.fcpserver4j.comun.utilidades.Conexion;
 
-public class Servidor
+public class Servidor implements Comparable
 {
     private long id;
     private String nombre;
@@ -12,6 +12,7 @@ public class Servidor
     private boolean local;
     private int historico;
     private Conexion conexion;
+    private int cantidadArchivos;
 
     public long getId()
     {
@@ -86,4 +87,27 @@ public class Servidor
     public void setHistorico(int historico){ this.historico = historico; };
 
     public int getHistorico(){ return this.historico; }
+
+    public int getCantidadArchivos()
+    {
+        return cantidadArchivos;
+    }
+
+    public void setCantidadArchivos( int cantidadArchivos )
+    {
+        this.cantidadArchivos = cantidadArchivos;
+    }
+
+    @Override
+    public int compareTo( Object servidor )
+    {
+        int compararCantidadArchivos = ((Servidor)servidor).getCantidadArchivos();
+
+        return this.cantidadArchivos-compararCantidadArchivos;
+    }
+
+    @Override
+    public String toString() {
+        return "[ nombre=" + nombre + ", ip=" + ip + ", puerto=" + puerto + ", archivos="+cantidadArchivos+"]";
+    }
 }

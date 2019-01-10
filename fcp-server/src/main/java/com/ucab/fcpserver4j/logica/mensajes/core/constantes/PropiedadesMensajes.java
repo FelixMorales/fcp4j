@@ -20,7 +20,9 @@ public final class PropiedadesMensajes
     public static final String CONTENIDO_PERSISTENCIA = "contenidoPersistencia";
 
     public static final String NOMBREARCHIVO = "nombreArchivo";
+    public static final String VERSIONARCHIVO = "versionArchivo";
     public static final String CONTENIDOARCHIVO = "contenidoArchivo";
-    public static final String FECHA_ARCHIVO = "fechaArchivo";
+    public static final String LOCALIZACIONES_ARCHIVO = "localizacionesArchivo";
+    public static final String ALMACENAR_ARCHIVO = "almacenarArchivo";
     public static final String AUTORARCHIVO = "autorArchivo";
 }

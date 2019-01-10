@@ -1,6 +1,7 @@
 package com.ucab.fcpserver4j.comun.entidades;
 
 import java.util.Date;
+import java.util.List;
 
 public class Archivo
 {
@@ -10,7 +11,7 @@ public class Archivo
     private String autor;
     private String ip;
     private Date fechaCreacion;
-    private Servidor localizacion;
+    private List<String> localizacion;
     private byte[] contenido;
 
     public long getId()
@@ -63,12 +64,12 @@ public class Archivo
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Servidor getLocalizacion()
+    public List<String> getLocalizacion()
     {
         return localizacion;
     }
 
-    public void setLocalizacion( Servidor localizacion )
+    public void setLocalizacion( List<String> localizacion )
     {
         this.localizacion = localizacion;
     }
@@ -92,4 +93,5 @@ public class Archivo
     {
         this.ip = ip;
     }
+
 }

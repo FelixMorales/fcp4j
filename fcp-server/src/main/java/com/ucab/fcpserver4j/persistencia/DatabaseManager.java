@@ -1,6 +1,7 @@
 package com.ucab.fcpserver4j.persistencia;
 
 import com.ucab.fcpserver4j.comun.entidades.Archivo;
+import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import javafx.scene.shape.Arc;
 import sun.security.krb5.internal.crypto.Des;
 
@@ -10,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -117,7 +120,71 @@ public class DatabaseManager
 
     }
 
-    public void AgregarArchivo( Archivo archivo )
+    private void RegistrarLocalizacionArchivo(Archivo archivo) throws SQLException
+    {
+        String sql = "INSERT INTO archivo_ubicacion(idArchivo, servidor) VALUES(?,?)";
+        PreparedStatement pstmt = null;
+
+        int filasAfectadas;
+
+        try
+        {
+            for(String localizacion : archivo.getLocalizacion())
+            {
+                pstmt = conexion.prepareStatement( sql );
+                pstmt.setLong( 1, archivo.getId() );
+                pstmt.setString( 2, localizacion );
+                filasAfectadas = pstmt.executeUpdate();
+
+                if(filasAfectadas != 1)
+                {
+                    conexion.rollback();
+                    break;
+                }
+
+                CerrarPreparedStatement( pstmt );
+            }
+        }
+        catch ( SQLException e )
+        {
+            CerrarPreparedStatement( pstmt );
+            throw e;
+        }
+
+    }
+
+    private int ObtenerIdArchivo(Archivo archivo) throws SQLException
+    {
+        int retorno = -1;
+        String sql = "SELECT id FROM archivo WHERE nombre = ? AND version = ? LIMIT 1";
+        PreparedStatement pstmt = null;
+
+        try
+        {
+            pstmt = conexion.prepareStatement( sql );
+            pstmt.setString( 1, archivo.getNombre() );
+            pstmt.setInt( 2, archivo.getVersion() );
+            ResultSet rs  = pstmt.executeQuery();
+
+            if(rs.next())
+            {
+                retorno = rs.getInt( "id" );
+            }
+
+            CerrarResultSet( rs );
+            CerrarPreparedStatement( pstmt );
+        }
+        catch ( SQLException e )
+        {
+            CerrarPreparedStatement( pstmt );
+            throw e;
+        }
+
+        return retorno;
+
+    }
+
+    public void AgregarArchivo( Archivo archivo, boolean fromCommit )
     {
         String insertArchivo = "INSERT INTO archivo(nombre,version, autor) VALUES(?,?,?)";
         PreparedStatement pstmt = null;
@@ -126,7 +193,11 @@ public class DatabaseManager
 
         lock.lock();
 
-        int versionArchivo = ObtenerVersionArchivo( archivo.getNombre() );
+        if(fromCommit)
+        {
+            int versionArchivo = ObtenerVersionArchivo( archivo.getNombre() );
+            archivo.setVersion( versionArchivo );
+        }
 
         try
         {
@@ -137,7 +208,7 @@ public class DatabaseManager
 
             pstmt = conexion.prepareStatement( insertArchivo );
             pstmt.setString( 1, archivo.getNombre().toLowerCase() );
-            pstmt.setInt( 2, versionArchivo );
+            pstmt.setInt( 2, archivo.getVersion() );
             pstmt.setString( 3, archivo.getAutor() );
             filasAfectadas = pstmt.executeUpdate();
 
@@ -145,12 +216,18 @@ public class DatabaseManager
                 conexion.rollback();
             }
 
+
+            archivo.setId( ObtenerIdArchivo( archivo ) );
+
+            RegistrarLocalizacionArchivo( archivo );
+
             ActualizarHistorico();
 
             conexion.commit();
         }
         catch ( ClassNotFoundException | SQLException e)
         {
+            RollBack();
             e.printStackTrace();
         }
         finally
@@ -193,6 +270,43 @@ public class DatabaseManager
         return retorno;
     }
 
+
+    public HashMap<String, Integer> ObtenerCantidadArchivosPorServidor()
+    {
+
+        lock.lock();
+
+        HashMap<String, Integer> retorno = new HashMap<>(  );
+        String sql = "SELECT servidor, count(idArchivo) FROM archivo_ubicacion GROUP BY servidor ORDER BY count(idArchivo)";
+        PreparedStatement pstmt = null;
+
+        try
+        {
+            Conectar();
+
+            pstmt = conexion.prepareStatement( sql );
+            ResultSet rs  = pstmt.executeQuery();
+
+            while(rs.next())
+            {
+                retorno.put( rs.getString( 1 ), rs.getInt( 2 ) );
+            }
+
+            CerrarResultSet( rs );
+            CerrarPreparedStatement( pstmt );
+        }
+        catch ( SQLException  | ClassNotFoundException e )
+        {
+            CerrarPreparedStatement( pstmt );
+        }
+        finally
+        {
+            Desconectar();
+            lock.unlock();
+        }
+        return retorno;
+    }
+
     private  void CerrarPreparedStatement(PreparedStatement pm)
     {
         try
@@ -219,39 +333,16 @@ public class DatabaseManager
         }
     }
 
-    public List<Archivo> ObtenerPersistenciaLocal()
+    private void RollBack()
     {
-        List<Archivo> retorno = new ArrayList<>(  );
-        String sql = "SELECT nombre,version,autor FROM archivo";
-        PreparedStatement pstmt = null;
-
         try
         {
-            Conectar();
-
-            pstmt = conexion.prepareStatement( sql );
-            ResultSet rs  = pstmt.executeQuery();
-
-            while(rs.next())
-            {
-                Archivo archivo = new Archivo();
-                archivo.setNombre( rs.getString( "nombre" ) );
-                archivo.setVersion( rs.getInt( "version" ) );
-                archivo.setAutor( rs.getString( "autor" ) );
-                retorno.add( archivo );
-            }
-
-            CerrarResultSet( rs );
-            CerrarPreparedStatement( pstmt );
+            conexion.rollback();
         }
-        catch ( SQLException  | ClassNotFoundException e )
+        catch ( SQLException e )
         {
-            CerrarPreparedStatement( pstmt );
+            e.printStackTrace();
         }
-        finally
-        {
-            Desconectar();
-        }
-        return retorno;
+
     }
 }

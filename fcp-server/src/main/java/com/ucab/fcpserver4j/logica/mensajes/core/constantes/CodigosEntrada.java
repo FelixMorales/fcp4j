@@ -23,5 +23,6 @@ public final class CodigosEntrada
     public static final int PETICION_PERSISTENCIA = 104;
     public static final int RESPUESTA_PETICION_PERSISTENCIA = 105;
     public static final int ENVIAR_PERSISTENCIA = 106;
+    public static final int REPLICAR_ARCHIVO = 107;
 
 }
