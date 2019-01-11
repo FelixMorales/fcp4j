@@ -12,16 +12,17 @@ import java.io.OutputStream;
 public class ComandoBytesToFile extends Comando<Boolean>
 {
     File archivo;
+    private String separador = File.separator;
     byte[] contenidoArchivo;
     public ComandoBytesToFile( Archivo archivoCommit )
     {
-        archivo = new File("./persistencia/archivos/"+archivoCommit.getNombre()+"&&v="+archivoCommit.getVersion());
+        archivo = new File("."+separador+"persistencia"+separador+"archivos"+separador+archivoCommit.getNombre()+"&&v="+archivoCommit.getVersion());
         this.contenidoArchivo = archivoCommit.getContenido();
     }
 
     public ComandoBytesToFile(byte[] contenidoDB)
     {
-        archivo = new File("./persistencia/db/archivosServidor.db");
+        archivo = new File("."+separador+"persistencia"+separador+"db"+separador+"archivosServidor.db");
         this.contenidoArchivo = contenidoDB;
     }
 

@@ -10,9 +10,10 @@ import java.nio.file.Files;
 public class ComandoFileToByte extends Comando<byte[]>
 {
     File archivo;
+    private String separador = File.separator;
     public ComandoFileToByte(String nombreArcivo)
     {
-        archivo = new File("./salida/"+nombreArcivo);
+        archivo = new File("."+separador+"salida"+separador+nombreArcivo);
     }
     @Override
     public byte[] ejecutar() throws IOException

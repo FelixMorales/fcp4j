@@ -11,10 +11,11 @@ import java.io.OutputStream;
 public class ComandoBytesToFile extends Comando<Boolean>
 {
     File archivo;
+    private String separador = File.separator;
     byte[] contenidoArchivo;
     public ComandoBytesToFile(byte[] contenidoArchivo, String nombreArchivo)
     {
-        archivo = new File("./entrada/"+nombreArchivo);
+        archivo = new File("."+separador+"entrada"+separador+nombreArchivo);
         this.contenidoArchivo = contenidoArchivo;
     }
     @Override
