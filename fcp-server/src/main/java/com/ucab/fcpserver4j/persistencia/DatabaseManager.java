@@ -5,6 +5,7 @@ import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import javafx.scene.shape.Arc;
 import sun.security.krb5.internal.crypto.Des;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -42,7 +43,8 @@ public class DatabaseManager
     private void Conectar() throws SQLException, ClassNotFoundException
     {
         Class.forName("org.sqlite.JDBC");
-        conexion = DriverManager.getConnection( "jdbc:sqlite:persistencia\\db\\archivosServidor.db" );
+        String separator = File.separator;
+        conexion = DriverManager.getConnection( "jdbc:sqlite:persistencia"+separator+"db"+separator+"archivosServidor.db" );
     }
 
     private void Desconectar()
