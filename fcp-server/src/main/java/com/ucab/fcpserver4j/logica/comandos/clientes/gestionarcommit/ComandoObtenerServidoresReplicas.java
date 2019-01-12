@@ -4,11 +4,9 @@ import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
-import com.ucab.fcpserver4j.persistencia.DatabaseManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
 public class ComandoObtenerServidoresReplicas extends Comando<List<String>>
@@ -26,7 +24,7 @@ public class ComandoObtenerServidoresReplicas extends Comando<List<String>>
 
         List<Servidor> listaOrdenada = new ArrayList<>(  );
 
-        for(Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos())
+        for(Servidor servidor : ServerManager.obtenerSingleton().getServidoresActivos())
         {
             listaOrdenada.add( servidor );
         }

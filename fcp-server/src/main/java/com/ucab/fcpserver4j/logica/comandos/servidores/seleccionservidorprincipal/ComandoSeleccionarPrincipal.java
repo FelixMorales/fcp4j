@@ -24,11 +24,11 @@ public class ComandoSeleccionarPrincipal extends Comando<Boolean>
     @Override
     public Boolean ejecutar()
     {
-        ServerManager.obtenerGlobal().getServidoresActivos().remove( servidorDesconectado );
+        ServerManager.obtenerSingleton().getServidoresActivos().remove( servidorDesconectado );
         if(this.servidorDesconectado.isPrincipal())
         {
             long idMenor = Long.MAX_VALUE;
-            for(Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos() )
+            for(Servidor servidor : ServerManager.obtenerSingleton().getServidoresActivos() )
             {
                 if(servidor.getId() < idMenor)
                 {
@@ -36,7 +36,7 @@ public class ComandoSeleccionarPrincipal extends Comando<Boolean>
                 }
             }
 
-            for(Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos())
+            for(Servidor servidor : ServerManager.obtenerSingleton().getServidoresActivos())
             {
                 if(idMenor == servidor.getId())
                 {

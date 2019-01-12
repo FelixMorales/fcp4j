@@ -23,17 +23,17 @@ public class ComandoGenerarIdLocal extends Comando<Boolean>
     @Override
     public Boolean ejecutar()
     {
-        for ( Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos() )
+        for ( Servidor servidor : ServerManager.obtenerSingleton().getServidoresActivos() )
         {
             if( !servidor.isLocal() )
             {
-                if( servidor.getId() > ServerManager.obtenerGlobal().getServidorLocal().getId() )
-                    ServerManager.obtenerGlobal().getServidorLocal().setId( servidor.getId() );
+                if( servidor.getId() > ServerManager.obtenerSingleton().getServidorLocal().getId() )
+                    ServerManager.obtenerSingleton().getServidorLocal().setId( servidor.getId() );
             }
         }
 
         ServerManager
-                .obtenerGlobal().getServidorLocal().setId( ServerManager.obtenerGlobal().getServidorLocal().getId() + 1 );
+                .obtenerSingleton().getServidorLocal().setId( ServerManager.obtenerSingleton().getServidorLocal().getId() + 1 );
 
         return true;
     }

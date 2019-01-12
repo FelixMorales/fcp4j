@@ -309,7 +309,95 @@ public class DatabaseManager
         return retorno;
     }
 
-    private  void CerrarPreparedStatement(PreparedStatement pm)
+    public Archivo ObtenerPersistenciaArchivo(Archivo archivo)
+    {
+        Archivo retorno = null;
+
+        retorno = obtenerArchivoUltimaVersion( archivo );
+
+        return retorno;
+
+    }
+
+    private Archivo obtenerArchivoUltimaVersion(Archivo archivo)
+    {
+        lock.lock();
+
+        Archivo retorno = null;
+
+        String sql = "SELECT id,nombre, version FROM archivo WHERE nombre = ? ORDER BY version DESC LIMIT 1";
+        PreparedStatement pstmt = null;
+
+        try
+        {
+            Conectar();
+
+            pstmt = conexion.prepareStatement( sql );
+            pstmt.setString( 1, archivo.getNombre().toLowerCase() );
+            ResultSet rs  = pstmt.executeQuery();
+
+            if(rs.next())
+            {
+                archivo.setId( rs.getInt( "id" ) );
+                archivo.setVersion( rs.getInt( "version" ) );
+            }
+
+            archivo = obtenerLocalizacionesArchivo( archivo );
+
+            CerrarResultSet( rs );
+            CerrarPreparedStatement( pstmt );
+        }
+        catch ( SQLException  | ClassNotFoundException e )
+        {
+            CerrarPreparedStatement( pstmt );
+        }
+        finally
+        {
+            Desconectar();
+            lock.unlock();
+        }
+
+        retorno = archivo;
+
+        return retorno;
+    }
+
+    private Archivo obtenerLocalizacionesArchivo(Archivo archivo) throws SQLException
+    {
+        Archivo retorno = null;
+
+        String sql = "SELECT servidor FROM archivo_ubicacion WHERE idArchivo = ?";
+        PreparedStatement pstmt = null;
+
+        try
+        {
+            pstmt = conexion.prepareStatement( sql );
+            pstmt.setLong( 1, archivo.getId() );
+            ResultSet rs  = pstmt.executeQuery();
+
+            List<String> localizaciones = new ArrayList<>(  );
+            while(rs.next())
+            {
+                localizaciones.add( rs.getString( "servidor" ) );
+            }
+
+            archivo.setLocalizacion( localizaciones );
+
+            CerrarResultSet( rs );
+            CerrarPreparedStatement( pstmt );
+        }
+        catch ( SQLException e )
+        {
+            CerrarPreparedStatement( pstmt );
+            throw e;
+        }
+
+        retorno = archivo;
+
+        return retorno;
+    }
+
+    private void CerrarPreparedStatement(PreparedStatement pm)
     {
         try
         {

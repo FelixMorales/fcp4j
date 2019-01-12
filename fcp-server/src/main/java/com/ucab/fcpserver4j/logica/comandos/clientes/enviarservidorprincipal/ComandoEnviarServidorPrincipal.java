@@ -22,9 +22,9 @@ public class ComandoEnviarServidorPrincipal extends Comando<Boolean>
     @Override
     public Boolean ejecutar()
     {
-        for(int i = 0; i < ServerManager.obtenerGlobal().getServidoresActivos().size(); i++ )
+        for( int i = 0; i < ServerManager.obtenerSingleton().getServidoresActivos().size(); i++ )
         {
-            Servidor servidor = ServerManager.obtenerGlobal().getServidoresActivos().get( i );
+            Servidor servidor = ServerManager.obtenerSingleton().getServidoresActivos().get( i );
 
             if(servidor.isPrincipal())
             {

@@ -13,7 +13,7 @@ public class AsignarIdServidor implements IMensajeEntrada
     {
         servidor.setId( mensaje.obtenerInt( PropiedadesMensajes.IDSERVIDOR ) );
 
-        for(Servidor servidorActivo : ServerManager.obtenerGlobal().getServidoresActivos())
+        for(Servidor servidorActivo : ServerManager.obtenerSingleton().getServidoresActivos())
         {
             System.out.println( "Servidor: "+servidorActivo.getNombre()+" - Info:"
                                 +servidorActivo.getIp()+servidorActivo.getPuerto() +

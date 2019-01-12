@@ -8,7 +8,6 @@ import com.ucab.fcpserver4j.logica.comandos.gestionararchivos.ComandoBytesToFile
 import com.ucab.fcpserver4j.logica.mensajes.servidores.salida.ReplicaArchivo;
 
 import java.io.IOException;
-import java.util.List;
 
 public class ComandoReplicarArchivo extends Comando<Boolean>
 {
@@ -23,7 +22,7 @@ public class ComandoReplicarArchivo extends Comando<Boolean>
     {
 
 
-        for(Servidor servidorActivo : ServerManager.obtenerGlobal().getServidoresActivos())
+        for(Servidor servidorActivo : ServerManager.obtenerSingleton().getServidoresActivos())
         {
             if(servidorActivo.isLocal())
             {
@@ -43,7 +42,7 @@ public class ComandoReplicarArchivo extends Comando<Boolean>
 
         try
         {
-            if(replicar( ServerManager.obtenerGlobal().getServidorLocal() ))
+            if(replicar( ServerManager.obtenerSingleton().getServidorLocal() ))
             {
                 ComandoBytesToFile comando = new ComandoBytesToFile( archivo );
                 comando.ejecutar();

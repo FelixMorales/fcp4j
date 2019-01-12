@@ -17,6 +17,7 @@ public class LeerPropiedad extends BasePropiedad
     public static final String KEYSTOREPASSWORD = get( "CONFIG.keyStore.password" );
     public static final String TRUSTSTOREPATH = get( "CONFIG.trustStore.path" );
     public static final String TRUSTSTOREPASSWORD = get( "CONFIG.trustStore.password" );
+    public static final String FORMATO_VERSION_ARCHIVO = "&&v=";
 
     /*Mensajes generales*/
     public static final String SERVIDOR_DESCONECTADO = get( "GENERAL.Mensaje.Desconectado" );

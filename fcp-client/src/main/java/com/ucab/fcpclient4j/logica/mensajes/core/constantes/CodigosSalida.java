@@ -11,4 +11,5 @@ public final class CodigosSalida
 {
     public static final int HANDS_SHAKE = 1;
     public static final int COMMIT = 2;
+    public static final int UPDATE = 3;
 }

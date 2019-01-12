@@ -28,14 +28,14 @@ public class ComandoEnviarPeticionObtenerId extends Comando<Boolean>
     @Override
     public Boolean ejecutar()
     {
-        for( Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos() )
+        for( Servidor servidor : ServerManager.obtenerSingleton().getServidoresActivos() )
         {
             try
             {
                 if(! servidor.isLocal() )
                 {
                     // Obtengo el nombre del servidor local (yo)
-                    String nombreServidorLocal = ServerManager.obtenerGlobal().getServidorLocal().getNombre();
+                    String nombreServidorLocal = ServerManager.obtenerSingleton().getServidorLocal().getNombre();
 
                     // Instancio el mensaje de salida para obtener el id de los otros servidores activos.
                     IMensajeSalida obtenerIdServidor = new ObtenerIdServidor( nombreServidorLocal );
@@ -58,7 +58,7 @@ public class ComandoEnviarPeticionObtenerId extends Comando<Boolean>
             catch( IOException e )
             {
                 // Si un servidor se desconecta en el proceso, se elimina de la lista de servidores activos.
-                ServerManager.obtenerGlobal().getServidoresActivos().remove( servidor );
+                ServerManager.obtenerSingleton().getServidoresActivos().remove( servidor );
                 System.out.println( String.format( LeerPropiedad.SERVIDOR_DESCONECTADO, servidor.getIp(),
                                                    servidor.getPuerto(), e.toString() ) );
             }

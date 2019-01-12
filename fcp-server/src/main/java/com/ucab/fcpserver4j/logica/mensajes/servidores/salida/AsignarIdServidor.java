@@ -13,7 +13,7 @@ public class AsignarIdServidor extends MensajeSalida
 
         agregarElemento( PropiedadesMensajes.TIPOMENSAJE, CodigosSalida.ASIGNAR_ID_SERVIDOR );
         agregarElemento( PropiedadesMensajes.SERVIDOR, true );
-        agregarElemento( PropiedadesMensajes.NOMBRESERVIDOR, ServerManager.obtenerGlobal().getServidorLocal().getNombre() );
-        agregarElemento( PropiedadesMensajes.IDSERVIDOR, ServerManager.obtenerGlobal().getServidorLocal().getId() );
+        agregarElemento( PropiedadesMensajes.NOMBRESERVIDOR, ServerManager.obtenerSingleton().getServidorLocal().getNombre() );
+        agregarElemento( PropiedadesMensajes.IDSERVIDOR, ServerManager.obtenerSingleton().getServidorLocal().getId() );
     }
 }

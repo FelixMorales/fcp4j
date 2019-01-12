@@ -1,6 +1,7 @@
 package com.ucab.fcpserver4j.logica.comandos.gestionararchivos;
 
 import com.ucab.fcpserver4j.comun.entidades.Archivo;
+import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
 
 import java.io.File;
@@ -10,9 +11,11 @@ import java.nio.file.Files;
 public class ComandoFileToByte extends Comando<byte[]>
 {
     File archivo;
+    private String separator = File.separator;
     public ComandoFileToByte( Archivo archivo)
     {
-        this.archivo = new File("./persistencia/archivos/"+generarNombre( archivo ));
+        this.archivo = new File("."+separator+"persistencia"+separator+"archivos"
+                                +separator+generarNombre( archivo ));
     }
 
     public ComandoFileToByte()
@@ -43,7 +46,7 @@ public class ComandoFileToByte extends Comando<byte[]>
     {
         StringBuilder sb = new StringBuilder(  );
         sb.append( archivo.getNombre() );
-        sb.append( "-" );
+        sb.append( LeerPropiedad.FORMATO_VERSION_ARCHIVO );
         sb.append( archivo.getVersion() );
 
         return sb.toString();

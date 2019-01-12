@@ -29,7 +29,7 @@ public class ComandoEnviarIdLocal extends Comando<Boolean>
     @Override
     public Boolean ejecutar()
     {
-        for( Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos() )
+        for( Servidor servidor : ServerManager.obtenerSingleton().getServidoresActivos() )
         {
             try
             {

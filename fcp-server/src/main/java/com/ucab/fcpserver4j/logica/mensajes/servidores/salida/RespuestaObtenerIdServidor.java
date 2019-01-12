@@ -13,8 +13,8 @@ public class RespuestaObtenerIdServidor extends MensajeSalida
 
         agregarElemento( PropiedadesMensajes.TIPOMENSAJE, CodigosSalida.ASIGNAR_ID_SERVIDORES );
         agregarElemento( PropiedadesMensajes.SERVIDOR, true );
-        agregarElemento( PropiedadesMensajes.IDSERVIDOR, ServerManager.obtenerGlobal().getServidorLocal().getId() );
-        agregarElemento( PropiedadesMensajes.SOYPRINCIPAL, ServerManager.obtenerGlobal().getServidorLocal().isPrincipal() );
-        agregarElemento( PropiedadesMensajes.HISTORICO_SERVIDOR, ServerManager.obtenerGlobal().getServidorLocal().getHistorico() );
+        agregarElemento( PropiedadesMensajes.IDSERVIDOR, ServerManager.obtenerSingleton().getServidorLocal().getId() );
+        agregarElemento( PropiedadesMensajes.SOYPRINCIPAL, ServerManager.obtenerSingleton().getServidorLocal().isPrincipal() );
+        agregarElemento( PropiedadesMensajes.HISTORICO_SERVIDOR, ServerManager.obtenerSingleton().getServidorLocal().getHistorico() );
     }
 }

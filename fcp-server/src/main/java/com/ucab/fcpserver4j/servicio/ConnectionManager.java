@@ -63,7 +63,7 @@ public class ConnectionManager implements Runnable
         Servidor servidor = crearServidor( conexion, entrada.obtenerString( PropiedadesMensajes.NOMBRESERVIDOR ));
 
         // Agrega el servidor a la lista de servidores activos.
-        ServerManager.obtenerGlobal().getServidoresActivos().add( servidor );
+        ServerManager.obtenerSingleton().getServidoresActivos().add( servidor );
 
         // Procesa el mensaje de entrada inicial.
         MensajeManager.obtenerMensajeManager().ProcesarMensajeServidor( entrada, servidor );

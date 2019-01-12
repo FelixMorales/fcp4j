@@ -6,12 +6,14 @@ com\ucab\fcpclient4j\logica\comandos\gestionararchivos\ComandoBytesToFile.class
 com\ucab\fcpclient4j\logica\mensajes\core\constantes\CodigosEntrada.class
 com\ucab\fcpclient4j\logica\mensajes\salida\Commit.class
 com\ucab\fcpclient4j\logica\mensajes\core\MensajeSalida.class
+com\ucab\fcpclient4j\logica\mensajes\salida\Update.class
 com\ucab\fcpclient4j\comun\entidades\Servidor.class
 com\ucab\fcpclient4j\comun\entidades\operaciones\cliente\Commit.class
 com\ucab\fcpclient4j\comun\utilidades\Parametros.class
 com\ucab\fcpclient4j\logica\comandos\commit\ComandoRealizarCommit.class
 com\ucab\fcpclient4j\comun\entidades\operaciones\cliente\Update.class
 com\ucab\fcpclient4j\logica\comandos\Comando.class
+com\ucab\fcpclient4j\logica\mensajes\entrada\Update.class
 com\ucab\fcpclient4j\logica\comandos\IComandoParametro.class
 com\ucab\fcpclient4j\logica\mensajes\core\PaqueteEntrada.class
 com\ucab\fcpclient4j\comun\entidades\operaciones\Operacion.class
@@ -30,3 +32,4 @@ com\ucab\fcpclient4j\comun\entidades\operaciones\cliente\Coordinador.class
 com\ucab\fcpclient4j\logica\mensajes\core\constantes\CodigosSalida.class
 com\ucab\fcpclient4j\comun\entidades\Archivo.class
 com\ucab\fcpclient4j\comun\utilidades\Conexion.class
+com\ucab\fcpclient4j\logica\comandos\update\ComandoRealizarUpdate.class

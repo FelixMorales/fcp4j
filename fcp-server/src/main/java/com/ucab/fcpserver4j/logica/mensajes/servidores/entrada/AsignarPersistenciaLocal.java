@@ -20,9 +20,9 @@ public class AsignarPersistenciaLocal implements IMensajeEntrada
         try
         {
             comando.ejecutar();
-            ServerManager.obtenerGlobal().getServidorLocal()
+            ServerManager.obtenerSingleton().getServidorLocal()
                     .setHistorico( DatabaseManager.obtenerSingleton().ObtenerHistorico() );
-            System.out.println( "Historico actualizado:"+ServerManager.obtenerGlobal()
+            System.out.println( "Historico actualizado:"+ServerManager.obtenerSingleton()
                     .getServidorLocal().getHistorico() );
         }
         catch ( IOException e )

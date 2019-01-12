@@ -1,5 +1,6 @@
 package com.ucab.fcpclient4j.comun.propiedades;
 
+import java.io.File;
 import java.util.Properties;
 
 /**
@@ -16,6 +17,7 @@ public class LeerPropiedad extends BasePropiedad
     public static final String USUARIO = get( "CONFIG.username" );
     public static final String TRUSTSTOREPATH = get( "CONFIG.trustStore.path" );
     public static final String TRUSTSTOREPASSWORD = get( "CONFIG.trustStore.password" );
+    public static final String SEPARADOR_ARCHIVO = File.separator;
 
     /**
      * Name:                  get

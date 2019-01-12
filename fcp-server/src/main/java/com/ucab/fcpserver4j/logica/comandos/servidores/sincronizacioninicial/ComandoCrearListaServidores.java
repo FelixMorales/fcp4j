@@ -46,7 +46,7 @@ public class ComandoCrearListaServidores extends Comando<Boolean>
                     host.setPuerto( Integer.parseInt( direccion[ 1 ] ) );
                     host.setNombre( direccion[ 2 ] );
                     host.setConexion( conexion );
-                    ServerManager.obtenerGlobal().getServidoresActivos().add( host );
+                    ServerManager.obtenerSingleton().getServidoresActivos().add( host );
                 }
                 catch ( IOException | NoSuchAlgorithmException e )
                 {

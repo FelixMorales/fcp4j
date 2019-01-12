@@ -33,6 +33,7 @@ public class Commit implements IMensajeEntradaCliente
         }
         catch ( IOException e )
         {
+            // enviar mensaje de error
             e.printStackTrace();
         }
     }

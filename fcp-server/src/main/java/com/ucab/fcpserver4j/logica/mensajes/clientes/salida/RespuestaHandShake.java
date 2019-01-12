@@ -12,7 +12,7 @@ public class RespuestaHandShake extends MensajeSalida
         super();
 
         agregarElemento( PropiedadesMensajes.TIPOMENSAJE, CodigosSalida.ENVIAR_SERVIDOR_PRINCIPAL );
-        agregarElemento( PropiedadesMensajes.IPSERVIDOR_PRINCIPAL, ServerManager.obtenerGlobal().getServidorLocal().getIp() );
-        agregarElemento( PropiedadesMensajes.PUERTOSERVIDOR_PRINCIPAL, ServerManager.obtenerGlobal().getServidorLocal().getPuerto() );
+        agregarElemento( PropiedadesMensajes.IPSERVIDOR_PRINCIPAL, ServerManager.obtenerSingleton().getServidorLocal().getIp() );
+        agregarElemento( PropiedadesMensajes.PUERTOSERVIDOR_PRINCIPAL, ServerManager.obtenerSingleton().getServidorLocal().getPuerto() );
     }
 }

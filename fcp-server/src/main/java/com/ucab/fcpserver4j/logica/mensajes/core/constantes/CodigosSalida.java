@@ -12,6 +12,7 @@ public final class CodigosSalida
     public static final int ENVIAR_SERVIDOR_PRINCIPAL = 0;
     public static final int RESPONDER_HANDSHAKE_EXITOSO = 1;
     public static final int RESPONDER_COMMIT = 2;
+    public static final int RESPUESTA_UPDATE = 3;
 
     // Servidores
     public static final int OBTENER_ID = 100;
@@ -22,4 +23,6 @@ public final class CodigosSalida
     public static final int RESPUESTA_PETICION_PERSISTENCIA = 105;
     public static final int ENVIAR_PERSISTENCIA = 106;
     public static final int REPLICAR_ARCHIVO = 107;
+    public static final int ENVIAR_PETICION_ARCHIVO = 108;
+    public static final int RESPUESTA_PETICION_ARCHIVO = 109;
 }

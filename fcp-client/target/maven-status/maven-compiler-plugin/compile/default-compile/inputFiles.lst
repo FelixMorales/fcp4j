@@ -1,4 +1,5 @@
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\comandos\IComandoParametro.java
+C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\comandos\update\ComandoRealizarUpdate.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\comun\entidades\Archivo.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\comun\entidades\Servidor.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\comun\utilidades\Conexion.java
@@ -15,6 +16,7 @@ C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\comun\utilidades\Parametros.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\comun\propiedades\BasePropiedad.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\mensajes\core\constantes\CodigosEntrada.java
+C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\mensajes\entrada\Update.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\mensajes\core\MensajeSalida.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\comun\entidades\operaciones\cliente\Coordinador.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\comandos\comunicacionInicial\ComandoSeleccionarServidor.java
@@ -24,6 +26,7 @@ C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\comandos\gestionararchivos\ComandoFileToByte.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\mensajes\core\interfaces\IMensajeSalida.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\mensajes\salida\Commit.java
+C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\mensajes\salida\Update.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\comun\entidades\operaciones\Operacion.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\comun\entidades\operaciones\cliente\Commit.java
 C:\Users\Beadelgado\Documents\Universidad UCAB\Noveno\Distribuidos\Proyecto2\fcp4j\fcp-client\src\main\java\com\ucab\fcpclient4j\logica\mensajes\entrada\AsignarServidorPrincipal.java

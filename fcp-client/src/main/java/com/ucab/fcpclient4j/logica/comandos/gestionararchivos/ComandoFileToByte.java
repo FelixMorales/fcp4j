@@ -1,19 +1,18 @@
 package com.ucab.fcpclient4j.logica.comandos.gestionararchivos;
 
+import com.ucab.fcpclient4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpclient4j.logica.comandos.Comando;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 
 public class ComandoFileToByte extends Comando<byte[]>
 {
     File archivo;
-    private String separador = File.separator;
     public ComandoFileToByte(String nombreArcivo)
     {
-        archivo = new File("."+separador+"salida"+separador+nombreArcivo);
+        archivo = new File( "." + LeerPropiedad.SEPARADOR_ARCHIVO + "archivos" + LeerPropiedad.SEPARADOR_ARCHIVO + nombreArcivo);
     }
     @Override
     public byte[] ejecutar() throws IOException

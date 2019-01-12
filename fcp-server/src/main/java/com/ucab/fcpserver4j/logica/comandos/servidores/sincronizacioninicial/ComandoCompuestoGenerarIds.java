@@ -27,7 +27,7 @@ public class ComandoCompuestoGenerarIds extends Comando<Boolean>
         ComandoCrearListaServidores crearListaServidores = new ComandoCrearListaServidores( local );
         crearListaServidores.ejecutar();
 
-        ServerManager.obtenerGlobal().setServidorLocal( localHost );
+        ServerManager.obtenerSingleton().setServidorLocal( localHost );
 
         // Verifica si soy el primer servidor activo, entonces soy el principal.
         // No hace falta enviar la peticion de obtener de id de otros servidores si soy el único.
@@ -44,9 +44,9 @@ public class ComandoCompuestoGenerarIds extends Comando<Boolean>
         }
 
         // Al final del proceso de generacion de id, me agrego a la lista de servidores activos.
-        ServerManager.obtenerGlobal().getServidoresActivos().add( localHost );
+        ServerManager.obtenerSingleton().getServidoresActivos().add( localHost );
 
-        for(Servidor servidorActivo : ServerManager.obtenerGlobal().getServidoresActivos())
+        for(Servidor servidorActivo : ServerManager.obtenerSingleton().getServidoresActivos())
         {
             System.out.println( "Servidor: "+servidorActivo.getNombre()+" - Info:"
                                 +servidorActivo.getIp()+servidorActivo.getPuerto() +
@@ -58,7 +58,7 @@ public class ComandoCompuestoGenerarIds extends Comando<Boolean>
 
     private boolean verificarPrincipal()
     {
-        return ( ServerManager.obtenerGlobal().getServidoresActivos().size() < 1 );
+        return ( ServerManager.obtenerSingleton().getServidoresActivos().size() < 1 );
     }
 
     private Servidor CrearServidorLocal(String direccionLocal)

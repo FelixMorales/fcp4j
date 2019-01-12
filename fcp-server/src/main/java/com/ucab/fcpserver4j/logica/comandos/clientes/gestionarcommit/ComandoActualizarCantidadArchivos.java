@@ -5,7 +5,6 @@ import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
 import com.ucab.fcpserver4j.persistencia.DatabaseManager;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 public class ComandoActualizarCantidadArchivos extends Comando<Boolean>
@@ -17,7 +16,7 @@ public class ComandoActualizarCantidadArchivos extends Comando<Boolean>
         HashMap<String, Integer> archivosPorServidor =
                 DatabaseManager.obtenerSingleton().ObtenerCantidadArchivosPorServidor();
 
-        for( Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos() )
+        for( Servidor servidor : ServerManager.obtenerSingleton().getServidoresActivos() )
         {
             try
             {

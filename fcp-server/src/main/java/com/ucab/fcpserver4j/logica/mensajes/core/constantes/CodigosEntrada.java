@@ -13,6 +13,7 @@ public final class CodigosEntrada
     //Clientes
     public static final int HANDSHAKE_CLIENTE = 1;
     public static final int COMMIT = 2;
+    public static final int UPDATE = 3;
 
 
     // Servidores
@@ -24,5 +25,7 @@ public final class CodigosEntrada
     public static final int RESPUESTA_PETICION_PERSISTENCIA = 105;
     public static final int ENVIAR_PERSISTENCIA = 106;
     public static final int REPLICAR_ARCHIVO = 107;
+    public static final int ENVIAR_PETICION_ARCHIVO = 108;
+    public static final int RESPUESTA_PETICION_ARCHIVO = 109;
 
 }

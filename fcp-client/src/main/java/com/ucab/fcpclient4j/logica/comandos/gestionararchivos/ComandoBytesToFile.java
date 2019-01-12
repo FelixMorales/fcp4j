@@ -1,5 +1,6 @@
 package com.ucab.fcpclient4j.logica.comandos.gestionararchivos;
 
+import com.ucab.fcpclient4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpclient4j.logica.comandos.Comando;
 
 import java.io.File;
@@ -11,11 +12,10 @@ import java.io.OutputStream;
 public class ComandoBytesToFile extends Comando<Boolean>
 {
     File archivo;
-    private String separador = File.separator;
     byte[] contenidoArchivo;
     public ComandoBytesToFile(byte[] contenidoArchivo, String nombreArchivo)
     {
-        archivo = new File("."+separador+"entrada"+separador+nombreArchivo);
+        archivo = new File( "." + LeerPropiedad.SEPARADOR_ARCHIVO + "archivos" + LeerPropiedad.SEPARADOR_ARCHIVO + nombreArchivo);
         this.contenidoArchivo = contenidoArchivo;
     }
     @Override

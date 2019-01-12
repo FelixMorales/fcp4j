@@ -41,7 +41,7 @@ public class ComandoSincronizarHistoricos extends Comando<Boolean>
     {
         int mayorHistorico = 0;
         Servidor retorno = null;
-        for( Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos() )
+        for( Servidor servidor : ServerManager.obtenerSingleton().getServidoresActivos() )
         {
             if(servidor.getHistorico() > mayorHistorico)
             {
@@ -52,9 +52,9 @@ public class ComandoSincronizarHistoricos extends Comando<Boolean>
 
         if(retorno != null)
         {
-            if(retorno.getHistorico() < ServerManager.obtenerGlobal().getServidorLocal().getHistorico())
+            if(retorno.getHistorico() < ServerManager.obtenerSingleton().getServidorLocal().getHistorico())
             {
-                retorno = ServerManager.obtenerGlobal().getServidorLocal();
+                retorno = ServerManager.obtenerSingleton().getServidorLocal();
             }
         }
 
@@ -64,7 +64,7 @@ public class ComandoSincronizarHistoricos extends Comando<Boolean>
     private void enviarArchivoPersistenciaLocal()
     {
         boolean error = false;
-        System.out.println( "Soy el local y envio mi persistencia a los demas ("+ServerManager.obtenerGlobal().getServidorLocal().getHistorico()+")");
+        System.out.println( "Soy el local y envio mi persistencia a los demas (" + ServerManager.obtenerSingleton().getServidorLocal().getHistorico() + ")");
 
         byte[] contenidoPersistencia = null;
 
@@ -82,11 +82,11 @@ public class ComandoSincronizarHistoricos extends Comando<Boolean>
 
         if(!error && contenidoPersistencia != null)
         {
-            for(Servidor servidor : ServerManager.obtenerGlobal().getServidoresActivos())
+            for(Servidor servidor : ServerManager.obtenerSingleton().getServidoresActivos())
             {
                 if(!servidor.isLocal())
                 {
-                    if(servidor.getHistorico() < ServerManager.obtenerGlobal().getServidorLocal().getHistorico())
+                    if(servidor.getHistorico() < ServerManager.obtenerSingleton().getServidorLocal().getHistorico())
                     {
                         try
                         {
@@ -105,7 +105,7 @@ public class ComandoSincronizarHistoricos extends Comando<Boolean>
 
     private void enviarPeticionObtenerArchivoPersistenciaActualizado(Servidor servidorActualizado)
     {
-        if(servidorActualizado.getHistorico() > ServerManager.obtenerGlobal().getServidorLocal().getHistorico())
+        if(servidorActualizado.getHistorico() > ServerManager.obtenerSingleton().getServidorLocal().getHistorico())
         {
             System.out.println( "Le pido al servidor " + servidorActualizado.getNombre()+" su historico: "+servidorActualizado.getHistorico() );
             IMensajeSalida peticionPersistencia = new PeticionPersistencia( );

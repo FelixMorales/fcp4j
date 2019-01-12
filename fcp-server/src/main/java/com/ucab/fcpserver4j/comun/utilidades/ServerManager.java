@@ -11,6 +11,7 @@ public class ServerManager
     private static List<Servidor> servidoresActivos = new ArrayList<>();
     private static Servidor servidorLocal = new Servidor();
     private static boolean seleccionEnProceso = false;
+    private Conexion cliente;
 
     public List<Servidor> getServidoresActivos()
     {
@@ -37,10 +38,20 @@ public class ServerManager
         this.seleccionEnProceso = seleccionEnProceso;
     }
 
+    public void setClienteActivo(Conexion cliente)
+    {
+        this.cliente = cliente;
+    }
+
+    public Conexion getClienteActivo()
+    {
+        return cliente;
+    }
+
     private ServerManager()
     { }
 
-    public static synchronized ServerManager obtenerGlobal()
+    public static synchronized ServerManager obtenerSingleton()
     {
         if(singleton == null)
             singleton = new ServerManager();
