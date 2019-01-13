@@ -34,8 +34,7 @@ public class ComandoRecibirReplica extends Comando<Boolean>
             DatabaseManager.obtenerSingleton().AgregarArchivo( archivo, false );
             ServerManager.obtenerSingleton().getServidorLocal().setHistorico( DatabaseManager.obtenerSingleton().ObtenerHistorico() );
 
-            System.out.println( "Archivo creado exitosamente" );
-            System.out.println( "Historico actualizado:" +ServerManager.obtenerSingleton().getServidorLocal().getHistorico());
+            System.out.println( "Persistencia actualizada");
         }
         catch ( IOException e )
         {

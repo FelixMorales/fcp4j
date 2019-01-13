@@ -107,7 +107,6 @@ public class ComandoSincronizarHistoricos extends Comando<Boolean>
     {
         if(servidorActualizado.getHistorico() > ServerManager.obtenerSingleton().getServidorLocal().getHistorico())
         {
-            System.out.println( "Le pido al servidor " + servidorActualizado.getNombre()+" su historico: "+servidorActualizado.getHistorico() );
             IMensajeSalida peticionPersistencia = new PeticionPersistencia( );
             enviarMensaje( servidorActualizado, peticionPersistencia );
         }

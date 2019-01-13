@@ -41,12 +41,10 @@ public class ConnectionManager implements Runnable
 
             if(esServidor)
             {
-                System.out.println( "Es servidor" );
                 monitorearServidor( conexion, mensajeEntrada );
             }
             else
             {
-                System.out.println( "Es cliente" );
                 MensajeManager.obtenerMensajeManager().
                         ProcesarMensajeCliente( mensajeEntrada, conexion );
             }
@@ -54,6 +52,10 @@ public class ConnectionManager implements Runnable
         catch( IOException e )
         {
             System.out.println( e.toString() );
+        }
+        catch ( Exception excGeneral )
+        {
+            excGeneral.printStackTrace();
         }
     }
 

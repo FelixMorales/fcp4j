@@ -22,7 +22,6 @@ public class ComandoEnviarHandShake extends Comando<Boolean>
 
         PaqueteEntrada mensajeEntrada = new PaqueteEntrada( mensajeUTF );
         MensajeManager.obtenerMensajeManager().ProcesarMensaje( mensajeEntrada, null );
-        System.out.println( "mensaje recibido"+ mensajeUTF );
         return true;
     }
 }

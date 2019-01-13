@@ -24,7 +24,6 @@ public class ComandoBuscarArchivo extends Comando<Archivo>
 
         if(verificarLocal())
         {
-            System.out.println( "Se encuentra local" );
             ComandoFileToByte comando = new ComandoFileToByte( archivo );
             archivo.setContenido( comando.ejecutar() );
             retorno = archivo;

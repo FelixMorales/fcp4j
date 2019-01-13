@@ -2,27 +2,16 @@ package com.ucab.fcpclient4j;
 
 import com.ucab.fcpclient4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpclient4j.comun.utilidades.ProgramManager;
-import com.ucab.fcpclient4j.comun.utilidades.ServerManager;
-import com.ucab.fcpclient4j.logica.comandos.commit.ComandoRealizarCommit;
 import com.ucab.fcpclient4j.logica.comandos.comunicacionInicial.ComandoEnviarHandShake;
 import com.ucab.fcpclient4j.logica.comandos.comunicacionInicial.ComandoSeleccionarServidor;
-import com.ucab.fcpclient4j.logica.mensajes.core.MensajeManager;
-import com.ucab.fcpclient4j.logica.mensajes.core.PaqueteEntrada;
-import com.ucab.fcpclient4j.logica.mensajes.salida.Commit;
-import com.ucab.fcpclient4j.logica.mensajes.salida.HandShake;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-
 public class App 
 {
     public static void main( String[] args )
     {
         System.setProperty("javax.net.ssl.trustStore", LeerPropiedad.TRUSTSTOREPATH );
         System.setProperty("javax.net.ssl.trustStorePassword ", LeerPropiedad.TRUSTSTOREPASSWORD );
-
-
-        //TODO: Realizar logica local antes de iniciar conexion y selecccion de servidores
 
         try
         {
@@ -37,11 +26,11 @@ public class App
         }
         catch ( IOException e )
         {
-            System.out.println( "EXCEPCION SOCKETS "+ e.toString() );
+            System.out.println( "ERROR AL INTENTAR CONTACTAR CON EL SERVIDOR.");
         }
         catch ( Exception e )
         {
-            System.out.println( "EXCEPCION GENERAL "+ e.toString() );
+            System.out.println( "ERROR GENERAL");
         }
     }
 }

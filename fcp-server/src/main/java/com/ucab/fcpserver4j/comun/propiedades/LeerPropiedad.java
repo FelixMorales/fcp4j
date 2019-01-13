@@ -22,6 +22,8 @@ public class LeerPropiedad extends BasePropiedad
     /*Mensajes generales*/
     public static final String SERVIDOR_DESCONECTADO = get( "GENERAL.Mensaje.Desconectado" );
     public static final String NO_ACTIVO = get( "GENERAL.Mensaje.NoActivo" );
+    public static final String ERROR_GENERAL = get("GENERAL.Mensaje.General");
+    public static final String ERROR_ARCHIVO_NOEXISTE = get("GENERAL.Mensaje.Archivo.NoEncontrado");
 
     /**
      *

@@ -25,4 +25,6 @@ public final class PropiedadesMensajes
     public static final String LOCALIZACIONES_ARCHIVO = "localizacionesArchivo";
     public static final String ALMACENAR_ARCHIVO = "almacenarArchivo";
     public static final String AUTORARCHIVO = "autorArchivo";
+
+    public static final String MENSAJE = "mensaje";
 }

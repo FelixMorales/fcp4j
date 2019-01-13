@@ -2,9 +2,10 @@ package com.ucab.fcpserver4j.logica.comandos.servidores.gestionarupdate;
 
 import com.ucab.fcpserver4j.comun.entidades.Archivo;
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
+import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
-import com.ucab.fcpserver4j.logica.mensajes.clientes.salida.RespuestaCommit;
+import com.ucab.fcpserver4j.logica.mensajes.clientes.salida.EnviarError;
 import com.ucab.fcpserver4j.logica.mensajes.servidores.salida.EnviarPeticionArchivo;
 
 import java.io.IOException;
@@ -30,15 +31,13 @@ public class ComandoObtenerArchivoRemoto extends Comando<Boolean>
         }
         catch ( IOException e )
         {
-            // Enviar mensaje servidor remoto desconectado.
-            ServerManager.obtenerSingleton().getClienteActivo().enviarCaracteres( new RespuestaCommit() );
+            ServerManager.obtenerSingleton().getClienteActivo().enviarCaracteres( new EnviarError( LeerPropiedad.ERROR_GENERAL ) );
             e.printStackTrace();
         }
         catch ( NullPointerException exc )
         {
-            // Enviar mensaje servidor remoto desconectado.
-            ServerManager.obtenerSingleton().getClienteActivo().enviarCaracteres( new RespuestaCommit() );
-            exc.printStackTrace();
+            ServerManager.obtenerSingleton().getClienteActivo().enviarCaracteres( new EnviarError( LeerPropiedad.ERROR_GENERAL ) );
+            System.out.println( "El servidor remoto donde se localiza el archivo se encuentra desconectado." );
         }
 
 

@@ -25,4 +25,7 @@ public final class CodigosSalida
     public static final int REPLICAR_ARCHIVO = 107;
     public static final int ENVIAR_PETICION_ARCHIVO = 108;
     public static final int RESPUESTA_PETICION_ARCHIVO = 109;
+
+    // Errores
+    public static final int ENVIAR_ERROR = 200;
 }

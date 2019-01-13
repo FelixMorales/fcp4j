@@ -1,8 +1,10 @@
 package com.ucab.fcpserver4j.logica.mensajes.clientes.entrada;
 
 import com.ucab.fcpserver4j.comun.entidades.Archivo;
+import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.Conexion;
 import com.ucab.fcpserver4j.logica.comandos.clientes.gestionarcommit.ComandoRecibirCommit;
+import com.ucab.fcpserver4j.logica.mensajes.clientes.salida.EnviarError;
 import com.ucab.fcpserver4j.logica.mensajes.clientes.salida.RespuestaCommit;
 import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
 import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
@@ -13,9 +15,8 @@ import java.io.IOException;
 public class Commit implements IMensajeEntradaCliente
 {
     @Override
-    public void ejecutar( PaqueteEntrada mensaje, Conexion cliente )
+    public void ejecutar( PaqueteEntrada mensaje, Conexion cliente ) throws IOException
     {
-        System.out.println( "mensaje recibido" + mensaje.GetMensaje() );
         try
         {
 
@@ -33,7 +34,7 @@ public class Commit implements IMensajeEntradaCliente
         }
         catch ( IOException e )
         {
-            // enviar mensaje de error
+            cliente.enviarCaracteres( new EnviarError( LeerPropiedad.ERROR_GENERAL ) );
             e.printStackTrace();
         }
     }

@@ -25,7 +25,7 @@ public class Update implements IMensajeEntrada
             ComandoBytesToFile comando = new ComandoBytesToFile( archivo.getContenido(), archivo.getNombre() );
             comando.ejecutar();
 
-            System.out.println( "Archivo creado con exito" );
+            System.out.println( "Ultima versión del archivo obtenida con éxito." );
         }
         catch ( IOException e )
         {

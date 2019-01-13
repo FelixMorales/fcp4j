@@ -12,10 +12,8 @@ public class RespuestaCommit extends MensajeSalida
     {
         super();
 
-        Servidor localhost = ServerManager.obtenerSingleton().getServidorLocal();
         agregarElemento( PropiedadesMensajes.TIPOMENSAJE, CodigosSalida.RESPONDER_COMMIT );
-        agregarElemento( PropiedadesMensajes.NOMBRESERVIDOR, localhost.getNombre() );
-        agregarElemento( PropiedadesMensajes.SOYPRINCIPAL, localhost.isPrincipal() );
+        agregarElemento( PropiedadesMensajes.MENSAJE, "Archivo registrado exitosamente." );
 
     }
 }

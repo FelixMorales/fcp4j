@@ -25,7 +25,7 @@ public class AsignarServidorPrincipal implements IMensajeEntrada
             // Establezco la conexión con el servidor principal
             ServerManager.obtenerGlobal().setServidorPrincipal( new Conexion( ipPrincipal,puertoPrincipal ) );
 
-            System.out.println( "Conexion establecida con "+ipPrincipal+":"+puertoPrincipal );
+            System.out.println( "Conexion establecida con el servidor principal." );
         }
         catch ( IOException e )
         {

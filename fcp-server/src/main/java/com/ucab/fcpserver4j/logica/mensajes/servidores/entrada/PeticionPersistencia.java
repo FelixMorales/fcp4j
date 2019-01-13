@@ -18,7 +18,6 @@ public class PeticionPersistencia implements IMensajeEntrada
         try
         {
             byte[] contenidoPersistencia = comandoPersistencia.ejecutar();
-            System.out.println( "Dandole mi persistencia al servidor:"+servidor.getNombre() );
             servidor.getConexion().enviarCaracteres( new RespuestaPeticionPersistencia( contenidoPersistencia ) );
 
         }

@@ -4,10 +4,12 @@ import com.ucab.fcpserver4j.comun.entidades.Archivo;
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
 import com.ucab.fcpserver4j.comun.excepciones.ArchivoEnOtroServidorException;
 import com.ucab.fcpserver4j.comun.excepciones.ArchivoNoEncontradoException;
+import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.Conexion;
 import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.clientes.gestionarupdate.ComandoRecibirUpdate;
 import com.ucab.fcpserver4j.logica.comandos.servidores.gestionarupdate.ComandoObtenerArchivoRemoto;
+import com.ucab.fcpserver4j.logica.mensajes.clientes.salida.EnviarError;
 import com.ucab.fcpserver4j.logica.mensajes.clientes.salida.RespuestaCommit;
 import com.ucab.fcpserver4j.logica.mensajes.clientes.salida.RespuestaUpdate;
 import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
@@ -44,13 +46,13 @@ public class Update implements IMensajeEntradaCliente
         }
         catch ( ArchivoNoEncontradoException exc )
         {
-            exc.printStackTrace();
-            cliente.enviarCaracteres( new RespuestaCommit() );
+            System.out.println( "El archivo no existe." );
+            cliente.enviarCaracteres( new EnviarError( LeerPropiedad.ERROR_ARCHIVO_NOEXISTE ) );
         }
         catch ( IOException  e)
         {
             e.printStackTrace();
-            cliente.enviarCaracteres( new RespuestaCommit() );
+            cliente.enviarCaracteres( new EnviarError( LeerPropiedad.ERROR_GENERAL ) );
         }
     }
 }

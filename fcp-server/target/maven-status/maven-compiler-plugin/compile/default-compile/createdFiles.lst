@@ -37,6 +37,7 @@ com\ucab\fcpserver4j\logica\comandos\servidores\gestionareplica\ComandoRecibirRe
 com\ucab\fcpserver4j\logica\comandos\servidores\sincronizacioninicial\ComandoCompuestoGenerarIds.class
 com\ucab\fcpserver4j\logica\comandos\servidores\seleccionservidorprincipal\ComandoSeleccionarPrincipal.class
 com\ucab\fcpserver4j\logica\mensajes\servidores\entrada\AsignarPersistenciaLocal.class
+com\ucab\fcpserver4j\logica\mensajes\clientes\salida\EnviarError.class
 com\ucab\fcpserver4j\logica\comandos\clientes\enviarservidorprincipal\ComandoEnviarServidorPrincipal.class
 com\ucab\fcpserver4j\logica\comandos\clientes\gestionarcommit\ComandoReplicarArchivo.class
 com\ucab\fcpserver4j\logica\mensajes\clientes\salida\EnviarServidorPrincipal.class

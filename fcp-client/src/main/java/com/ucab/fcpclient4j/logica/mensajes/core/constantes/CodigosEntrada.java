@@ -10,5 +10,9 @@ package com.ucab.fcpclient4j.logica.mensajes.core.constantes;
 public final class CodigosEntrada
 {
     public static final int ASIGNAR_SERVIDOR_PRINCIPAL = 0;
+    public static final int RESPUESTA_COMMIT = 2;
     public static final int RESPUESTA_UPDATE = 3;
+
+
+    public static final int RESPUESTA_ERROR = 200;
 }

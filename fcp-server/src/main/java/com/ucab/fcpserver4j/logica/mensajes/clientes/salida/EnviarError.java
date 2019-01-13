@@ -1,0 +1,17 @@
+package com.ucab.fcpserver4j.logica.mensajes.clientes.salida;
+
+import com.ucab.fcpserver4j.logica.mensajes.core.MensajeSalida;
+import com.ucab.fcpserver4j.logica.mensajes.core.constantes.CodigosSalida;
+import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
+
+public class EnviarError extends MensajeSalida
+{
+    public EnviarError(String mensaje)
+    {
+        super();
+
+        agregarElemento( PropiedadesMensajes.TIPOMENSAJE, CodigosSalida.ENVIAR_ERROR );
+        agregarElemento( PropiedadesMensajes.MENSAJE, mensaje );
+
+    }
+}

@@ -19,4 +19,6 @@ public final class PropiedadesMensajes
 
     public static final String IPSERVIDOR_PRINCIPAL = "ipPrincipal";
     public static final String PUERTOSERVIDOR_PRINCIPAL = "puertoPrincipal";
+
+    public static final String MENSAJE = "mensaje";
 }
