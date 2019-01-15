@@ -50,7 +50,7 @@ public class ComandoCrearListaServidores extends Comando<Boolean>
                 }
                 catch ( IOException | NoSuchAlgorithmException e )
                 {
-                    System.out.println( String.format( LeerPropiedad.NO_ACTIVO, servidor, e.toString() ) );
+                    System.out.println( String.format( LeerPropiedad.NO_ACTIVO, servidor) );
                 }
             }
         }

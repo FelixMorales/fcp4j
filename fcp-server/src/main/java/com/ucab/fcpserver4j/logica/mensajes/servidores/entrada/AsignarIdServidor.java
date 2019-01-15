@@ -1,6 +1,7 @@
 package com.ucab.fcpserver4j.logica.mensajes.servidores.entrada;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
+import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.mensajes.core.constantes.PropiedadesMensajes;
 import com.ucab.fcpserver4j.logica.mensajes.core.PaqueteEntrada;
@@ -13,11 +14,12 @@ public class AsignarIdServidor implements IMensajeEntrada
     {
         servidor.setId( mensaje.obtenerInt( PropiedadesMensajes.IDSERVIDOR ) );
 
+        System.out.println( "Servidores conectados:" );
         for(Servidor servidorActivo : ServerManager.obtenerSingleton().getServidoresActivos())
         {
-            System.out.println( "Servidor: "+servidorActivo.getNombre()+" - Info:"
-                                +servidorActivo.getIp()+servidorActivo.getPuerto() +
-                                " - Id:"+servidorActivo.getId() + " - Principal:"+servidorActivo.isPrincipal() );
+            System.out.println( String.format( LeerPropiedad.INFO_SERVIDOR, servidorActivo.getIp(),
+                                               servidorActivo.getPuerto(), servidorActivo.getNombre(),
+                                               servidorActivo.getId(), servidorActivo.isPrincipal()) );
         }
 
     }

@@ -35,7 +35,6 @@ public class ComandoCompuestoGenerarIds extends Comando<Boolean>
         {
             localHost.setPrincipal( true );
             localHost.setId( 1 );
-            System.out.println( "soy el principal" );
         }
         else
         {
@@ -46,11 +45,12 @@ public class ComandoCompuestoGenerarIds extends Comando<Boolean>
         // Al final del proceso de generacion de id, me agrego a la lista de servidores activos.
         ServerManager.obtenerSingleton().getServidoresActivos().add( localHost );
 
+        System.out.println( "Servidores conectados:" );
         for(Servidor servidorActivo : ServerManager.obtenerSingleton().getServidoresActivos())
         {
-            System.out.println( "Servidor: "+servidorActivo.getNombre()+" - Info:"
-                                +servidorActivo.getIp()+servidorActivo.getPuerto() +
-                                " - Id:"+servidorActivo.getId() + " - Principal:"+servidorActivo.isPrincipal() );
+            System.out.println( String.format( LeerPropiedad.INFO_SERVIDOR, servidorActivo.getIp(),
+                                               servidorActivo.getPuerto(), servidorActivo.getNombre(),
+                                               servidorActivo.getId(), servidorActivo.isPrincipal()) );
         }
 
         return true;

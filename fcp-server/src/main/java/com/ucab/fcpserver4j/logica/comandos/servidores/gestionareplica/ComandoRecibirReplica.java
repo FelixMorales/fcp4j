@@ -1,6 +1,7 @@
 package com.ucab.fcpserver4j.logica.comandos.servidores.gestionareplica;
 
 import com.ucab.fcpserver4j.comun.entidades.Archivo;
+import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
 import com.ucab.fcpserver4j.logica.comandos.gestionararchivos.ComandoBytesToFile;
@@ -27,6 +28,7 @@ public class ComandoRecibirReplica extends Comando<Boolean>
         {
             if(almacenar)
             {
+                System.out.println( "Archivo guardado en el directorio local." );
                 ComandoBytesToFile comandoAlmacenar = new ComandoBytesToFile( archivo );
                 comandoAlmacenar.ejecutar();
             }
@@ -34,7 +36,7 @@ public class ComandoRecibirReplica extends Comando<Boolean>
             DatabaseManager.obtenerSingleton().AgregarArchivo( archivo, false );
             ServerManager.obtenerSingleton().getServidorLocal().setHistorico( DatabaseManager.obtenerSingleton().ObtenerHistorico() );
 
-            System.out.println( "Persistencia actualizada");
+            System.out.println( String.format( LeerPropiedad.INFO_ARCHIVO_LOCAL, archivo.getNombre() ));
         }
         catch ( IOException e )
         {

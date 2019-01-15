@@ -15,7 +15,7 @@ public class ComandoFileToByte extends Comando<byte[]>
         archivo = new File( "." + LeerPropiedad.SEPARADOR_ARCHIVO + "archivos" + LeerPropiedad.SEPARADOR_ARCHIVO + nombreArcivo);
     }
     @Override
-    public byte[] ejecutar()
+    public byte[] ejecutar() throws IOException
     {
 
         byte[] retorno = new byte[0];
@@ -27,6 +27,7 @@ public class ComandoFileToByte extends Comando<byte[]>
         catch ( IOException e)
         {
             System.out.println( "Error al leer el archivo." + e.toString() );
+            throw e;
         }
 
         return retorno;

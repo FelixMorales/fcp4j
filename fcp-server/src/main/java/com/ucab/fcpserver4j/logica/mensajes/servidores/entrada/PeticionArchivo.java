@@ -25,8 +25,7 @@ public class PeticionArchivo implements IMensajeEntrada
             ComandoFileToByte comandoFileToByte = new ComandoFileToByte( archivo );
             archivo.setContenido(comandoFileToByte.ejecutar());
 
-            System.out.println( "Me llego la peticion de archivo remoto - " );
-            System.out.print( archivo.getNombre() );
+            System.out.println( "Me llego la peticion de archivo remoto - "+archivo.getNombre() );
             servidor.getConexion().enviarCaracteres( new RespuestaPeticionArchivo( archivo ) );
         }
         catch ( IOException e )

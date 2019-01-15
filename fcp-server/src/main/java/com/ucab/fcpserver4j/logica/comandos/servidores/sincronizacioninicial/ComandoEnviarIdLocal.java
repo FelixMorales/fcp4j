@@ -1,6 +1,7 @@
 package com.ucab.fcpserver4j.logica.comandos.servidores.sincronizacioninicial;
 
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
+import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
 import com.ucab.fcpserver4j.logica.comandos.servidores.seleccionservidorprincipal.ComandoSeleccionarPrincipal;
@@ -46,9 +47,9 @@ public class ComandoEnviarIdLocal extends Comando<Boolean>
             {
                 ComandoSeleccionarPrincipal comando = new ComandoSeleccionarPrincipal( servidor );
                 comando.ejecutar();
-                System.out.println( "muere servidor (2)  "
-                                    +servidor.getNombre()+" - "
-                                    +servidor.getIp()+servidor.getPuerto() );
+
+                System.out.println( String.format( LeerPropiedad.SERVIDOR_DESCONECTADO,
+                                                   servidor.getIp(), servidor.getPuerto()) );
             }
         }
 

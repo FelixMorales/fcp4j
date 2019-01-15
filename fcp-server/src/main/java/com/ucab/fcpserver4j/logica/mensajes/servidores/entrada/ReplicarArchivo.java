@@ -36,7 +36,6 @@ public class ReplicarArchivo implements IMensajeEntrada
 
     private List<String> localizacionesArchivo(String localizaciones)
     {
-        System.out.println( "Localizaciones:"+localizaciones );
         List<String> retorno = new ArrayList<>(  );
 
         String[] array = localizaciones.split( ";" );

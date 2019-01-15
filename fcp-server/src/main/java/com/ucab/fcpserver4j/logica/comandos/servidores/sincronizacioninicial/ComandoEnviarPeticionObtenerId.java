@@ -60,7 +60,7 @@ public class ComandoEnviarPeticionObtenerId extends Comando<Boolean>
                 // Si un servidor se desconecta en el proceso, se elimina de la lista de servidores activos.
                 ServerManager.obtenerSingleton().getServidoresActivos().remove( servidor );
                 System.out.println( String.format( LeerPropiedad.SERVIDOR_DESCONECTADO, servidor.getIp(),
-                                                   servidor.getPuerto(), e.toString() ) );
+                                                   servidor.getPuerto()) );
             }
         }
 

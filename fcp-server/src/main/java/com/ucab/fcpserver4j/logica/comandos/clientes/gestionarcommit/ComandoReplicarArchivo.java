@@ -2,6 +2,7 @@ package com.ucab.fcpserver4j.logica.comandos.clientes.gestionarcommit;
 
 import com.ucab.fcpserver4j.comun.entidades.Archivo;
 import com.ucab.fcpserver4j.comun.entidades.Servidor;
+import com.ucab.fcpserver4j.comun.propiedades.LeerPropiedad;
 import com.ucab.fcpserver4j.comun.utilidades.ServerManager;
 import com.ucab.fcpserver4j.logica.comandos.Comando;
 import com.ucab.fcpserver4j.logica.comandos.gestionararchivos.ComandoBytesToFile;
@@ -46,6 +47,8 @@ public class ComandoReplicarArchivo extends Comando<Boolean>
             {
                 ComandoBytesToFile comando = new ComandoBytesToFile( archivo );
                 comando.ejecutar();
+
+                System.out.println( "Archivo guardado en el directorio local." );
             }
         }
         catch ( IOException e )
@@ -58,6 +61,8 @@ public class ComandoReplicarArchivo extends Comando<Boolean>
     {
         try
         {
+            System.out.println( String.format( LeerPropiedad.INFO_ARCHIVO_REPLICA,
+                                               servidor.getIp(), servidor.getPuerto(), servidor.getNombre()));
             servidor.getConexion().enviarCaracteres( new ReplicaArchivo( archivo, replicar( servidor ) ) );
         }
         catch ( IOException e )
